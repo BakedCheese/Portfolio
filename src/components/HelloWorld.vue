@@ -33,7 +33,9 @@
         <div class="right-side">
           <div class="button button-under-object">All collections</div>
         </div>
-        <div class="margin"></div>
+        <div v-for="collection in this.collections" :key="collection.id">
+          {{ collection }}
+        </div>
         <div class="margin"></div>
         <footer class="footer">Made by BakedCheese</footer>
       </div>
@@ -42,8 +44,31 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  name: "HelloWorld",
+  data() {
+    return {
+      collections: [],
+    };
+  },
+
+  created() {
+    this.load();
+  },
+
+  methods: {
+    Create() {
+      this.$router.push({ name: "CreateCollection" });
+    },
+    async load() {
+      try {
+        const response = await axios.get(`http://localhost:5000/collections`);
+        this.collections = response.data;
+      } catch (err) {
+        console.log(err.message);
+      }
+    },
+  },
 };
 </script>
 
