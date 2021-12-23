@@ -22,9 +22,13 @@
           <div class="w-text fw-bold spacing">Latest Collections</div>
         </div>
         <div class="some-collections">
-          <img src="" style="object-position: center" alt="example1" />
+          <img
+            src="../assets/Images/Example-1.jpg"
+            style="object-position: center"
+            alt="example1"
+          />
           <div class="margin"></div>
-          <img src="" alt="example2" />
+          <img src="../assets/Images/Example-2.jpg" alt="example2" />
         </div>
         <div class="right-side">
           <div class="button button-under-object">All collections</div>
