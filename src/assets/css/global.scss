@@ -1,0 +1,19 @@
+.container {
+  max-width: 450px;
+  user-select: none;
+  -webkit-user-select: none; /*Safari*/
+  -moz-user-select: none; /*Firefox*/
+}
+.margin {
+  margin-bottom: 25px;
+}
+
+.b-text {
+  color: black;
+}
+.w-text {
+  color: white;
+}
+.g-text {
+  color: #1e1e1ec7;
+}

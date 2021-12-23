@@ -58,6 +58,13 @@ export default {
   height: 280px;
   object-fit: cover;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: #f9f9f9 0px solid;
+}
+
+.some-collections > img:hover {
+  border: #f9f9f9 5px solid;
 }
 
 .spacing {
@@ -133,6 +140,13 @@ export default {
   justify-content: center;
   font-weight: 500;
   font-size: 1.3rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: #f9f9f9 0px solid;
+}
+
+.button:hover {
+  border: #f9f9f9 5px solid;
 }
 .button-under-object {
   margin-top: 15px;
@@ -141,6 +155,7 @@ export default {
   display: flex;
   justify-content: end;
   align-items: center;
+  padding: 0px;
 }
 .footer {
   align-items: center;
@@ -160,29 +175,5 @@ export default {
   .footer {
     padding-top: 3px;
   }
-}
-.container {
-  max-width: 450px;
-}
-.margin {
-  margin-bottom: 25px;
-}
-
-.object-in-bar {
-  margin-bottom: -4px;
-}
-
-button:hover {
-  text-decoration: underline;
-}
-
-.b-text {
-  color: black;
-}
-.w-text {
-  color: white;
-}
-.g-text {
-  color: #1e1e1ec7;
 }
 </style>
