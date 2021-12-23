@@ -3,7 +3,7 @@ import express from "express";
 // import cors
 import cors from "cors";
 // import routes
-import router from "./Router/router.js";
+import router from "./router/router.js";
 
 // init express
 const app = express();
