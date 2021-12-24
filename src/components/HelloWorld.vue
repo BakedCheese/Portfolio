@@ -1,5 +1,5 @@
 <template>
-  <div class="container text-center">
+  <div class="container text-center" style="max-width: 450px">
     <div class="mt-4 mx-4 mx-md-0">
       <div class="row">
         <div class="bblock">
@@ -22,19 +22,14 @@
           <div class="w-text fw-bold spacing">Latest Collections</div>
         </div>
         <div class="some-collections">
-          <img
-            src="../assets/Images/Example-1.jpg"
-            style="object-position: center"
-            alt="example1"
-          />
+          <Clickablepicture :collection_id="5" />
           <div class="margin"></div>
-          <img src="../assets/Images/Example-2.jpg" alt="example2" />
+          <Clickablepicture :collection_id="2" />
         </div>
         <div class="right-side">
-          <div class="button button-under-object">All collections</div>
-        </div>
-        <div v-for="collection in this.collections" :key="collection.id">
-          {{ collection }}
+          <div class="button button-under-object" @click="AllCollection">
+            All collections
+          </div>
         </div>
         <div class="margin"></div>
         <footer class="footer">Made by BakedCheese</footer>
@@ -45,7 +40,9 @@
 
 <script>
 import axios from "axios";
+import Clickablepicture from "./clickable-picture.vue";
 export default {
+  components: { Clickablepicture },
   data() {
     return {
       collections: [],
@@ -59,6 +56,10 @@ export default {
   methods: {
     Create() {
       this.$router.push({ name: "CreateCollection" });
+    },
+
+    AllCollection() {
+      this.$router.push({ name: "WallofCollections" });
     },
     async load() {
       try {
@@ -75,21 +76,6 @@ export default {
 <style scoped>
 .some-collections {
   padding: 0px;
-}
-
-.some-collections > img {
-  border-radius: 50px;
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  border: #f9f9f9 0px solid;
-}
-
-.some-collections > img:hover {
-  border: #f9f9f9 5px solid;
 }
 
 .spacing {

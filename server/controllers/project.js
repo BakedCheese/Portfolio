@@ -1,18 +1,21 @@
 import dbConnection from "../connection.js";
 
-export const getCollections = (req, res) => {
-  dbConnection.query("SELECT * FROM collection", (err, results) => {
-    if (!err) {
-      res.json(results);
-    } else {
-      res.send(err);
+export const getProjects = (req, res) => {
+  dbConnection.query(
+    "SELECT * FROM project ORDER BY made DESC",
+    (err, results) => {
+      if (!err) {
+        res.json(results);
+      } else {
+        res.send(err);
+      }
     }
-  });
+  );
 };
 
-export const getCollectionsWithId = (req, res) => {
+export const getProjectWithId = (req, res) => {
   dbConnection.query(
-    `SELECT * FROM collection WHERE id = ${req.params.id}`,
+    `SELECT * FROM project WHERE id = ${req.params.id}`,
     (err, results) => {
       if (!err) {
         res.json(results[0]);
@@ -24,10 +27,10 @@ export const getCollectionsWithId = (req, res) => {
   );
 };
 
-export const createCollections = (req, res) => {
+export const createProject = (req, res) => {
   console.log(req.body);
   dbConnection.query(
-    "INSERT INTO collection SET ? ",
+    "INSERT INTO project SET ? ",
     [req.body],
     (err, results) => {
       if (!err) {
@@ -40,9 +43,9 @@ export const createCollections = (req, res) => {
   );
 };
 
-export const deleteCollection = (req, res) => {
+export const deleteProject = (req, res) => {
   dbConnection.query(
-    "DELETE FROM collection WHERE id = ?",
+    "DELETE FROM project WHERE id = ?",
     [req.params.id],
     (err, results) => {
       if (!err) {
@@ -55,9 +58,9 @@ export const deleteCollection = (req, res) => {
   );
 };
 
-export const updateCollection = (req, res) => {
+export const updateProject = (req, res) => {
   dbConnection.query(
-    "UPDATE collection SET ? WHERE id = ?",
+    "UPDATE project SET ? WHERE id = ?",
     [req.body, req.params.id],
     (err, results) => {
       if (!err) {
