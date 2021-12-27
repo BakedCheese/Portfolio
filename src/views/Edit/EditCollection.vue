@@ -40,7 +40,7 @@ export default {
     async load() {
       try {
         const response = await axios.get(
-          `http://localhost:5000/collections/${this.$route.params.id}`
+          `http://localhost:8080/collections/${this.$route.params.id}`
         );
         this.title = response.data.title;
         this.discription = response.data.discription;
