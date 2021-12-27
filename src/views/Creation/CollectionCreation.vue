@@ -35,10 +35,13 @@ export default {
     },
     async Create() {
       try {
-        const response = await axios.post(`104.16.244.78:5000/collections`, {
-          title: this.title,
-          discription: this.discription,
-        });
+        const response = await axios.post(
+          `https://portfolio-eck7c.ondigitalocean.app/webserver/collections`,
+          {
+            title: this.title,
+            discription: this.discription,
+          }
+        );
         this.$router.push({ name: "Home" });
       } catch (err) {
         console.log(err.message);

@@ -23,7 +23,9 @@ export default {
       let paragraph_id;
 
       try {
-        const response = await axios.get(`104.16.244.78:5000/projects`);
+        const response = await axios.get(
+          `https://portfolio-eck7c.ondigitalocean.app/webserver/projects`
+        );
 
         for (let index = 0; index < response.data.length; index++) {
           if (response.data[index].collection_id == this.$props.collection_id) {
@@ -33,7 +35,9 @@ export default {
         }
 
         try {
-          const response = await axios.get(`104.16.244.78:5000/paragraphs`);
+          const response = await axios.get(
+            `https://portfolio-eck7c.ondigitalocean.app/webserver/paragraphs`
+          );
 
           for (let index = 0; index < response.data.length; index++) {
             if (response.data[index].project_id == project_id) {
@@ -44,7 +48,9 @@ export default {
             }
           }
           try {
-            const response = await axios.get(`104.16.244.78:5000/pictures`);
+            const response = await axios.get(
+              `https://portfolio-eck7c.ondigitalocean.app/webserver/pictures`
+            );
             for (let index = 0; index < response.data.length; index++) {
               if (response.data[index].paragraph_id == paragraph_id) {
                 this.alt = response.data[index].alt;

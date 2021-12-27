@@ -40,7 +40,7 @@ export default {
     async load() {
       try {
         const response = await axios.get(
-          `104.16.244.78:5000/collections/${this.$route.params.id}`
+          `https://portfolio-eck7c.ondigitalocean.app/webserver/collections/${this.$route.params.id}`
         );
         this.title = response.data.title;
         this.discription = response.data.discription;

@@ -63,7 +63,9 @@ export default {
     },
     async load() {
       try {
-        const response = await axios.get(`104.16.244.78:5000/collections`);
+        const response = await axios.get(
+          `https://portfolio-eck7c.ondigitalocean.app/webserver/collections`
+        );
         this.collections = response.data;
       } catch (err) {
         console.log(err.message);
