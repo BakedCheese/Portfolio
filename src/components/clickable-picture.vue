@@ -1,5 +1,12 @@
 <template>
-  <img class="picture" :src="this.url" :alt="this.alt" />
+  <div v-if="this.url.length == 0" class="load-holder">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <div v-else>
+    <img class="picture" :src="this.url" :alt="this.alt" />
+  </div>
 </template>
 
 <script>
@@ -74,6 +81,13 @@ export default {
 </script>
 
 <style scoped>
+.load-holder {
+  width: 100%;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .picture {
   border-radius: 50px;
   width: 100%;
