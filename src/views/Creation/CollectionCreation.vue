@@ -35,7 +35,7 @@ export default {
     },
     async Create() {
       try {
-        const response = await axios.post(`http://localhost:8080/collections`, {
+        const response = await axios.post(`http://localhost:5000/collections`, {
           title: this.title,
           discription: this.discription,
         });
