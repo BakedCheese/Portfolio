@@ -64,7 +64,7 @@ export default {
     async load() {
       try {
         const response = await axios.get(
-          `http://portfolio-eck7c.ondigitalocean.app:5000/collections`
+          `https://portfolio-eck7c.ondigitalocean.app:5000/collections`
         );
         this.collections = response.data;
       } catch (err) {

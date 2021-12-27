@@ -36,7 +36,7 @@ export default {
     async Create() {
       try {
         const response = await axios.post(
-          `http://portfolio-eck7c.ondigitalocean.app:5000/collections`,
+          `https://portfolio-eck7c.ondigitalocean.app:5000/collections`,
           {
             title: this.title,
             discription: this.discription,
