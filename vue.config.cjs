@@ -1,5 +1,5 @@
 module.exports = {
   devServer: {
-    disableHostCheck: true,
+    proxy: "http://10.244.1.47:8080/",
   },
 };

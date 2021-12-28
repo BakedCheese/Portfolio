@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "start": "nodemon ./server/index.js"
+    "build": "vue-cli-service build"
   },
   "dependencies": {
     "axios": "^0.24.0",

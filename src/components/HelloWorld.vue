@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "axios.js";
 import Clickablepicture from "./clickable-picture.vue";
 export default {
   components: { Clickablepicture },
