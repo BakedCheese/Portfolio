@@ -52,7 +52,7 @@ export default {
     async Edit() {
       try {
         const response = await axios.put(
-          `http://localhost:5000/collections/${this.$route.params.id}`,
+          `https://portfolio-eck7c.ondigitalocean.app/webserver/collections/${this.$route.params.id}`,
           {
             title: this.title,
             discription: this.discription,
