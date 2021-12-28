@@ -37,7 +37,6 @@ export default {
         for (let index = 0; index < response.data.length; index++) {
           if (response.data[index].collection_id == this.$props.collection_id) {
             project_id = response.data[index].id;
-            console.log(response.data[index].title);
           }
         }
 
@@ -50,7 +49,6 @@ export default {
             if (response.data[index].project_id == project_id) {
               if (response.data[index].order_in_project == 0) {
                 paragraph_id = response.data[index].id;
-                console.log(response.data[index].heading);
               }
             }
           }
@@ -61,9 +59,7 @@ export default {
             for (let index = 0; index < response.data.length; index++) {
               if (response.data[index].paragraph_id == paragraph_id) {
                 this.alt = response.data[index].alt;
-                console.log(this.alt);
                 this.url = response.data[index].url;
-                console.log(this.url);
               }
             }
           } catch (err) {
