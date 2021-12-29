@@ -1,6 +1,6 @@
 module.exports = {
   devServer: {
-    https: true,
-    public: "https://portfolio-eck7c.ondigitalocean.app/",
+    https: false,
+    public: "http://10.244.1.47:8080/",
   },
 };
