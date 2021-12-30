@@ -160,6 +160,7 @@ export default {
 
 .button:hover {
   border: #f9f9f9 5px solid;
+  border-radius: 32px;
 }
 .button-under-object {
   margin-top: 15px;
@@ -177,7 +178,7 @@ export default {
   width: 100%;
   max-width: 500px;
   height: 50px;
-  border-radius: 50px 50px 0px 0px;
+  border-radius: 50px;
   background-color: #f9f9f9;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
   color: rgba(30, 30, 30, 0.8);
@@ -187,6 +188,7 @@ export default {
 @media only screen and (max-width: 600px) {
   .footer {
     padding-top: 3px;
+    border-radius: 50px 50px 0px 0px;
   }
 }
 </style>
