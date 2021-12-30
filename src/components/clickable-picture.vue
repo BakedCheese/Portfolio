@@ -31,7 +31,7 @@ export default {
 
       try {
         const response = await axios.get(
-          `https://portfolio-eck7c.ondigitalocean.app/webserver/projects`
+          `https://portfolio-app-6qg7c.ondigitalocean.app/webserver/projects`
         );
 
         for (let index = 0; index < response.data.length; index++) {
@@ -42,7 +42,7 @@ export default {
 
         try {
           const response = await axios.get(
-            `https://portfolio-eck7c.ondigitalocean.app/webserver/paragraphs`
+            `https://portfolio-app-6qg7c.ondigitalocean.app/webserver/paragraphs`
           );
 
           for (let index = 0; index < response.data.length; index++) {
@@ -54,7 +54,7 @@ export default {
           }
           try {
             const response = await axios.get(
-              `https://portfolio-eck7c.ondigitalocean.app/webserver/pictures`
+              `https://portfolio-app-6qg7c.ondigitalocean.app/webserver/pictures`
             );
             for (let index = 0; index < response.data.length; index++) {
               if (response.data[index].paragraph_id == paragraph_id) {
