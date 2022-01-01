@@ -1,40 +1,35 @@
 <template>
-  <div class="container text-center" style="max-width: 450px">
-    <div class="mt-4 mx-4 mx-md-0">
-      <div class="row">
-        <div class="bblock">
-          <h2 class="w-text fw-bolder spacing">Hello . Osu . Morge</h2>
-        </div>
-        <div class="wblock">
-          <p class="g-text">
-            My name is Tim van Daalen, I'm a Dutch software Engineer student at
-            The Hague University of Applied Sciences. I like playing and making
-            games, exploring the world of the unknown, traveling and being a
-            nerd.
-          </p>
-        </div>
-        <div class="right-side">
-          <div class="button button-under-object">About me</div>
-        </div>
-        <div class="margin"></div>
-        <div class="margin"></div>
-        <div class="margin head">
-          <div class="w-text fw-bold spacing">Latest Collections</div>
-        </div>
-        <div class="some-collections">
-          <Clickablepicture :collection_id="5" />
-          <div class="margin"></div>
-          <Clickablepicture :collection_id="2" />
-        </div>
-        <div class="right-side">
-          <div class="button button-under-object" @click="AllCollection">
-            All collections
-          </div>
-        </div>
-        <div class="margin"></div>
-        <footer class="footer">Made by BakedCheese</footer>
+  <div style="max-width: 450px">
+    <div class="bblock">
+      <h2 class="w-text fw-bolder spacing">Hello . Osu . Morge</h2>
+    </div>
+    <div class="wblock">
+      <p class="g-text">
+        My name is Tim van Daalen, I'm a Dutch software Engineer student at The
+        Hague University of Applied Sciences. I like playing and making games,
+        exploring the world of the unknown, traveling and being a nerd.
+      </p>
+    </div>
+    <div class="right-side">
+      <div class="button button-under-object">About me</div>
+    </div>
+    <div class="margin"></div>
+    <div class="margin"></div>
+    <div class="margin head">
+      <div class="w-text fw-bold spacing">Latest Collections</div>
+    </div>
+    <div class="some-collections">
+      <Clickablepicture :collection_id="5" />
+      <div class="margin"></div>
+      <Clickablepicture :collection_id="2" />
+    </div>
+    <div class="right-side">
+      <div class="button button-under-object" @click="AllCollection">
+        All collections
       </div>
     </div>
+    <div class="margin"></div>
+    <footer class="footer">Made by BakedCheese</footer>
   </div>
 </template>
 
@@ -183,12 +178,5 @@ export default {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
   color: rgba(30, 30, 30, 0.8);
   font-weight: 500;
-}
-
-@media only screen and (max-width: 600px) {
-  .footer {
-    padding-top: 3px;
-    border-radius: 50px 50px 0px 0px;
-  }
 }
 </style>
