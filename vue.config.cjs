@@ -4,7 +4,7 @@ module.exports = {
     compress: true,
     allowedHosts: [
       "portfolio-app-6qg7c.ondigitalocean.app",
-      "thewoodytree.xyz",
+      "aardappleplukkers.nl",
     ],
   },
 };
