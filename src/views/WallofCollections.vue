@@ -1,5 +1,5 @@
 <template>
-  <div style="max-width: 900px">
+  <div class="container" style="max-width: 900px">
     <h1>All Collections</h1>
     <div class="margin"></div>
     <div v-for="(collection, index) in collections" :key="collection.id">

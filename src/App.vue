@@ -1,9 +1,10 @@
 <template>
-  <div class="center">
-    <div class="container text-center">
-      <router-view />
-    </div>
-  </div>
+  <div class="center text-center"><router-view /></div>
 </template>
 
-<style></style>
+<style scoped>
+.center {
+  display: flex;
+  justify-content: center;
+}
+</style>
