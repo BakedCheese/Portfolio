@@ -32,6 +32,7 @@ export default {
 
   created() {
     this.load();
+    document.title = "Collections";
   },
 
   methods: {

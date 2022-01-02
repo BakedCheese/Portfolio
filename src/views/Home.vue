@@ -11,5 +11,8 @@ export default {
   components: {
     HelloWorld,
   },
+  created() {
+    document.title = "Welcome";
+  },
 };
 </script>
