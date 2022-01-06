@@ -1,45 +1,47 @@
 <template>
   <div class="container" style="max-width: 450px">
-    <div class="row">
-      <div class="bblock">
-        <h2 class="w-text fw-bolder spacing">Hello . Osu . Morge</h2>
-      </div>
-      <div class="wblock">
-        <p class="g-text">
-          My name is Tim van Daalen, I'm a Dutch software Engineer student at
-          The Hague University of Applied Sciences. I like playing and making
-          games, exploring the world of the unknown, traveling and being a nerd.
-        </p>
-      </div>
-      <div class="right-side">
-        <div class="button button-under-object">About me</div>
-      </div>
-      <div class="margin"></div>
-      <div class="margin"></div>
-      <div class="margin head">
-        <div class="w-text fw-bold spacing">Latest Collections</div>
-      </div>
-      <div class="some-collections">
-        <Clickablepicture :collection_id="5" />
-        <div class="margin"></div>
-        <Clickablepicture :collection_id="2" />
-      </div>
-      <div class="right-side">
-        <div class="button button-under-object" @click="AllCollection">
-          All collections
+    <div class="block">
+      <div class="inner-block">
+        <div class="bblock">
+          <h2 class="w-text fw-bolder spacing">Hello . Osu . Morge</h2>
         </div>
+        <div class="wblock">
+          <p class="g-text">
+            My name is Tim van Daalen, I'm a Dutch software Engineer student at
+            The Hague University of Applied Sciences. I like playing and making
+            games, exploring the world of the unknown, traveling and being a
+            nerd.
+          </p>
+        </div>
+        <div class="right-side">
+          <div class="button button-under-object">About me</div>
+        </div>
+        <div class="margin"></div>
+        <div class="margin head">
+          <div class="w-text fw-bold spacing">Latest Collections</div>
+        </div>
+        <div class="some-collections">
+          <ClickablePictureCollection :collection_id="5" />
+          <div class="margin"></div>
+          <ClickablePictureCollection :collection_id="2" />
+        </div>
+        <div class="right-side">
+          <div class="button button-under-object" @click="AllCollection">
+            All collections
+          </div>
+        </div>
+        <div class="margin"></div>
+        <footer class="footer">Made by BakedCheese</footer>
       </div>
-      <div class="margin"></div>
-      <footer class="footer">Made by BakedCheese</footer>
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import Clickablepicture from "../components/clickable-picture.vue";
+import ClickablePictureCollection from "../components/clickable-picture-collection.vue";
 export default {
-  components: { Clickablepicture },
+  components: { ClickablePictureCollection },
   data() {
     return {
       collections: [],
@@ -48,6 +50,7 @@ export default {
 
   created() {
     this.load();
+    document.title = "Welcome";
   },
 
   methods: {
@@ -56,7 +59,7 @@ export default {
     },
 
     AllCollection() {
-      this.$router.push({ name: "WallofCollections" });
+      this.$router.push({ name: "AllCollections" });
     },
     async load() {
       try {
@@ -69,13 +72,18 @@ export default {
       }
     },
   },
-  created() {
-    document.title = "Welcome";
-  },
 };
 </script>
 
 <style scoped>
+.block {
+  display: flex;
+  justify-content: center;
+}
+.inner-block {
+  width: 100%;
+  max-width: 450px;
+}
 .some-collections {
   padding: 0px;
 }
@@ -85,12 +93,16 @@ export default {
 }
 
 .bblock {
+  color: #f9f9f9;
   background-color: #1e1e1e;
   border-radius: 50px;
   width: 100%;
   max-width: 500px;
   height: 183px;
   align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  letter-spacing: 5px;
   display: flex;
   justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;

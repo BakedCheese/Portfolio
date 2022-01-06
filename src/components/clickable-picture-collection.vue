@@ -5,7 +5,12 @@
     </div>
   </div>
   <div v-else>
-    <img class="picture" :src="this.url" :alt="this.alt" />
+    <img
+      class="picture"
+      :src="this.url"
+      :alt="this.alt"
+      @click="gotoCollection"
+    />
   </div>
 </template>
 
@@ -25,6 +30,13 @@ export default {
   },
 
   methods: {
+    gotoCollection() {
+      this.$router.push({
+        name: "Collection",
+        params: { id: this.collection_id },
+      });
+    },
+
     async load() {
       let project_id;
       let paragraph_id;
@@ -37,6 +49,7 @@ export default {
         for (let index = 0; index < response.data.length; index++) {
           if (response.data[index].collection_id == this.$props.collection_id) {
             project_id = response.data[index].id;
+            break;
           }
         }
 
@@ -49,6 +62,7 @@ export default {
             if (response.data[index].project_id == project_id) {
               if (response.data[index].order_in_project == 0) {
                 paragraph_id = response.data[index].id;
+                break;
               }
             }
           }
@@ -60,6 +74,7 @@ export default {
               if (response.data[index].paragraph_id == paragraph_id) {
                 this.alt = response.data[index].alt;
                 this.url = response.data[index].url;
+                break;
               }
             }
           } catch (err) {

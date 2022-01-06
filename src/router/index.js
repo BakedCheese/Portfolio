@@ -1,8 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-import WallofCollections from "../views/WallofCollections.vue";
+import AllCollections from "../views/AllCollections.vue";
 import CreateCollection from "../views/Creation/CollectionCreation.vue";
 import EditCollection from "../views/Edit/EditCollection.vue";
+import Collection from "../views/Collection.vue";
+import Project from "../views/Project.vue";
 
 const routes = [
   {
@@ -12,8 +14,8 @@ const routes = [
   },
   {
     path: "/allcollections",
-    name: "WallofCollections",
-    component: WallofCollections,
+    name: "AllCollections",
+    component: AllCollections,
   },
   {
     path: "/admin/overview/create/collection",
@@ -24,6 +26,18 @@ const routes = [
     path: "/admin/overview/edit/collections/:id",
     name: "EditCollection",
     component: EditCollection,
+    props: true,
+  },
+  {
+    path: "/collections/:id",
+    name: "Collection",
+    component: Collection,
+    props: true,
+  },
+  {
+    path: "/projects/:id",
+    name: "Project",
+    component: Project,
     props: true,
   },
 ];
