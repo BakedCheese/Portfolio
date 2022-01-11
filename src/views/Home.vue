@@ -64,7 +64,7 @@ export default {
     async load() {
       try {
         const response = await axios.get(
-          `https://portfolio-app-6qg7c.ondigitalocean.app/webserver/collections`
+          `https://bakedcheese.nl/webserver/collections`
         );
         this.collections = response.data;
       } catch (err) {

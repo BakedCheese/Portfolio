@@ -6,6 +6,7 @@ import EditCollection from "../views/Edit/EditCollection.vue";
 import Collection from "../views/Collection.vue";
 import Project from "../views/Project.vue";
 import Login from "../views/Admin/Login.vue";
+import Homepage from "../views/Admin/Homepage.vue";
 
 const routes = [
   {
@@ -45,6 +46,11 @@ const routes = [
     name: "Project",
     component: Project,
     props: true,
+  },
+  {
+    path: "/admin/homepage",
+    name: "Homepage",
+    component: Homepage,
   },
 ];
 
