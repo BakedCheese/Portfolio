@@ -98,7 +98,7 @@ export default {
   background-color: #f9f9f9;
   border-radius: 0px 50px 50px 0px;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 .picture {

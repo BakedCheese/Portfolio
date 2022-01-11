@@ -5,6 +5,7 @@ import CreateCollection from "../views/Creation/CollectionCreation.vue";
 import EditCollection from "../views/Edit/EditCollection.vue";
 import Collection from "../views/Collection.vue";
 import Project from "../views/Project.vue";
+import Login from "../views/Admin/Login.vue";
 
 const routes = [
   {
@@ -21,6 +22,11 @@ const routes = [
     path: "/admin/overview/create/collection",
     name: "CreateCollection",
     component: CreateCollection,
+  },
+  {
+    path: "/admin/login",
+    name: "Login",
+    component: Login,
   },
   {
     path: "/admin/overview/edit/collections/:id",
