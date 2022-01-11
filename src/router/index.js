@@ -6,6 +6,7 @@ import EditCollection from "../views/Edit/EditCollection.vue";
 import Collection from "../views/Collection.vue";
 import Project from "../views/Project.vue";
 import Login from "../views/Admin/Login.vue";
+import Homepage from "../views/Admin/Homepage.vue";
 
 const routes = [
   {
@@ -19,7 +20,7 @@ const routes = [
     component: AllCollections,
   },
   {
-    path: "/admin/overview/create/collection",
+    path: "/admin/homepage/create/collection",
     name: "CreateCollection",
     component: CreateCollection,
   },
@@ -29,7 +30,7 @@ const routes = [
     component: Login,
   },
   {
-    path: "/admin/overview/edit/collections/:id",
+    path: "/admin/homepage/edit/collections/:id",
     name: "EditCollection",
     component: EditCollection,
     props: true,
@@ -45,6 +46,11 @@ const routes = [
     name: "Project",
     component: Project,
     props: true,
+  },
+  {
+    path: "/admin/homepage",
+    name: "Homepage",
+    component: Homepage,
   },
 ];
 

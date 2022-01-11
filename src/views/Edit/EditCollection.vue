@@ -40,7 +40,7 @@ export default {
     async load() {
       try {
         const response = await axios.get(
-          `https://portfolio-app-6qg7c.ondigitalocean.app/webserver/collections/${this.$route.params.id}`
+          `https://bakedcheese.nl/webserver/${this.$route.params.id}`
         );
         this.title = response.data.title;
         this.discription = response.data.discription;
@@ -52,7 +52,7 @@ export default {
     async Edit() {
       try {
         const response = await axios.put(
-          `https://portfolio-app-6qg7c.ondigitalocean.app/webserver/collections/${this.$route.params.id}`,
+          `https://bakedcheese.nl/webserver/${this.$route.params.id}`,
           {
             title: this.title,
             discription: this.discription,

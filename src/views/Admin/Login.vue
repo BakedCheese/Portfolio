@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container" style="max-width: 450px">
     <div class="margin"></div>
     <form>
       <p>
@@ -37,7 +37,7 @@ export default {
       console.log("input data...");
       try {
         const response = await axios.post(
-          `https://portfolio-app-6qg7c.ondigitalocean.app/webserver/login`,
+          `https://bakedcheese.nl/webserver/login`,
           {
             username: this.username,
             password: this.password,
@@ -46,7 +46,10 @@ export default {
 
         if (response.data) {
           console.log(response.data);
-          this.$router.push({ name: "CreateCollection" });
+          window.sessionStorage.setItem("key", true);
+          this.$router.push({ name: "Homepage" });
+        } else {
+          window.sessionStorage.setItem("key", false);
         }
       } catch (err) {
         console.log(err.message);
@@ -66,13 +69,15 @@ form {
 form input {
   border: none;
   padding: 20px;
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
   border-radius: 50px;
 }
 form button {
   border: none;
   padding: 15px;
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
   border-radius: 50px;
   font-weight: bolder;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;

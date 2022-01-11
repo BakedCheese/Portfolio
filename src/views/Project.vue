@@ -37,14 +37,14 @@ export default {
     async load() {
       try {
         const response = await axios.get(
-          `https://portfolio-app-6qg7c.ondigitalocean.app/webserver/projects/${this.$route.params.id}`
+          `https://bakedcheese.nl/webserver/projects/${this.$route.params.id}`
         );
         this.title = response.data.title;
         this.discription = response.data.discription;
         document.title = "P:" + this.title;
         try {
           const response = await axios.get(
-            `https://portfolio-app-6qg7c.ondigitalocean.app/webserver/paragraphs`
+            `https://bakedcheese.nl/webserver/webserver/paragraphs`
           );
           for (let index = 0; index < response.data.length; index++) {
             if (response.data[index].project_id == this.$route.params.id) {
