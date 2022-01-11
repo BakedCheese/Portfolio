@@ -46,7 +46,10 @@ export default {
 
         if (response.data) {
           console.log(response.data);
+          window.sessionStorage.setItem("key", true);
           this.$router.push({ name: "Homepage" });
+        } else {
+          window.sessionStorage.setItem("key", false);
         }
       } catch (err) {
         console.log(err.message);

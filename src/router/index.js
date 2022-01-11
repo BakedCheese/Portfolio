@@ -20,7 +20,7 @@ const routes = [
     component: AllCollections,
   },
   {
-    path: "/admin/overview/create/collection",
+    path: "/admin/homepage/create/collection",
     name: "CreateCollection",
     component: CreateCollection,
   },
@@ -30,7 +30,7 @@ const routes = [
     component: Login,
   },
   {
-    path: "/admin/overview/edit/collections/:id",
+    path: "/admin/homepage/edit/collections/:id",
     name: "EditCollection",
     component: EditCollection,
     props: true,
