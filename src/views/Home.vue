@@ -143,16 +143,6 @@ export default {
   }
 }
 
-.head {
-  background-color: #1e1e1e;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  height: 100px;
-  border-radius: 50px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
-  font-size: 1.2rem;
-}
 .button {
   background-color: #2a6e47;
   border-radius: 0px 32px 32px 32px;
