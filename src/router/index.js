@@ -9,15 +9,22 @@ import Login from "../views/Admin/Login.vue";
 import Homepage from "../views/Admin/Homepage.vue";
 
 const routes = [
+  //base
   {
     path: "/",
     name: "Home",
     component: Home,
   },
+  //admin
   {
-    path: "/allcollections",
-    name: "AllCollections",
-    component: AllCollections,
+    path: "/admin",
+    name: "Login",
+    component: Login,
+  },
+  {
+    path: "/admin/homepage",
+    name: "Homepage",
+    component: Homepage,
   },
   {
     path: "/admin/homepage/create/collection",
@@ -25,15 +32,16 @@ const routes = [
     component: CreateCollection,
   },
   {
-    path: "/admin/login",
-    name: "Login",
-    component: Login,
-  },
-  {
     path: "/admin/homepage/edit/collections/:id",
     name: "EditCollection",
     component: EditCollection,
     props: true,
+  },
+  //default
+  {
+    path: "/allcollections",
+    name: "AllCollections",
+    component: AllCollections,
   },
   {
     path: "/collections/:id",
@@ -46,11 +54,6 @@ const routes = [
     name: "Project",
     component: Project,
     props: true,
-  },
-  {
-    path: "/admin/homepage",
-    name: "Homepage",
-    component: Homepage,
   },
 ];
 

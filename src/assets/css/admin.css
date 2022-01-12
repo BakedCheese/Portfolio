@@ -1,0 +1,87 @@
+button {
+  padding: 20px 30px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+  background-color: #f9f9f9;
+  font-weight: bold;
+  transition: box-shadow 0.2s ease-in-out;
+}
+button:hover {
+  box-shadow: rgba(0, 0, 0, 0) 0px 3px 6px;
+}
+
+.list {
+  text-align: start;
+}
+
+.list-item {
+  margin-top: 20px;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 0px;
+  font-size: 1.4rem;
+  border: #f9f9f9 3px solid;
+  border-radius: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  transition: border 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.item:hover {
+  border: #e0e0e0 3px solid;
+}
+
+.items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  text-align: end;
+  margin-bottom: 5px;
+}
+
+.items > div {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.made-item {
+  display: inline-block;
+  font-size: 0.8rem;
+  background-color: #f9f9f9;
+
+  padding: 0px 20px;
+  border-radius: 10px;
+}
+
+.id-item {
+  margin-right: 30px;
+  font-weight: bold;
+  border-radius: 50px;
+}
+
+.content-item {
+  width: 100%;
+  border-radius: 50px;
+}
+
+.icon {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 30px;
+}
+
+.icon:active {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px inset;
+}

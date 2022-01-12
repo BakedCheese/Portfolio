@@ -53,6 +53,10 @@ export default {
           }
         }
 
+        if (project_id == null) {
+          return;
+        }
+
         try {
           const response = await axios.get(
             `https://portfolio-app-6qg7c.ondigitalocean.app/webserver/paragraphs`
