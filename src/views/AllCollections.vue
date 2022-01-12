@@ -3,23 +3,9 @@
     <h1>All Collections</h1>
     <div class="margin"></div>
     <div v-if="this.collections.length > 0">
-      <div v-for="(collection, index) in collections" :key="collection.id">
-        <div v-if="index % 2 == 0">
-          <div class="row">
-            <div class="col-sm-6 col-12">
-              <ClickablePictureCollection
-                :collection_id="collections[index].id"
-              />
-              <div class="margin"></div>
-            </div>
-            <div class="col-sm-6 col-12">
-              <ClickablePictureCollection
-                :collection_id="collections[index + 1].id"
-              />
-              <div class="margin"></div>
-            </div>
-          </div>
-        </div>
+      <div v-for="collection in collections" :key="collection.id">
+        <ClickablePictureCollection :collection_id="collection.id" />
+        <div class="margin"></div>
       </div>
     </div>
     <div v-else>

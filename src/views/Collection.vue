@@ -43,7 +43,7 @@ export default {
     async load() {
       try {
         const response = await axios.get(
-          `https://bakedcheese.nl/webserver/${this.$route.params.id}`
+          `https://bakedcheese.nl/webserver/collections/${this.$route.params.id}`
         );
         this.title = response.data.title;
         this.discription = response.data.discription;
