@@ -1,13 +1,15 @@
 <template>
   <div class="container" style="max-width: 700px">
     <h1>Welcome to admin control</h1>
-    <div class="buttons">
-      <button @click="createCollection">Create Collection</button>
-    </div>
     <div class="margin"></div>
+    <div class="item-list-heading">
+      <div>Collections</div>
+      <button @click="createCollection">Create new collection</button>
+    </div>
+    <div class="line"></div>
     <div class="list">
-      <div v-for="collection in collections" :key="collection.id">
-        <listItem :data="collection" />
+      <div v-for="(collection, index) in collections" :key="collection.id">
+        <collectionItem :data="collection" :index="index" />
       </div>
     </div>
   </div>
@@ -15,9 +17,9 @@
 
 <script>
 import axios from "axios";
-import listItem from "../../components/Admin/list-item.vue";
+import collectionItem from "../../components/Admin/collection-item.vue";
 export default {
-  components: { listItem },
+  components: { collectionItem },
   beforeCreate() {
     if (!window.sessionStorage.getItem("key")) {
       this.$router.push({ name: "Login" });
