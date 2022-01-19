@@ -1,15 +1,34 @@
 import { createRouter, createWebHistory } from "vue-router";
+
+//---------------------------------------------------------------------
+//Misc
+//---------------------------------------------------------------------
+
 import Home from "../views/Home.vue";
 import AllCollections from "../views/AllCollections.vue";
+import Login from "../views/Admin/Login.vue";
+import Homepage from "../views/Admin/Homepage.vue";
+
+//---------------------------------------------------------------------
+//Create
+//---------------------------------------------------------------------
+
 import CreateCollection from "../views/Admin/Creation/CollectionCreation.vue";
 import CreateProject from "../views/Admin/Creation/ProjectCreation.vue";
 import CreateParagraph from "../views/Admin/Creation/ParagraphCreation.vue";
 import CreatePicture from "../views/Admin/Creation/PictureCreation.vue";
-import EditCollection from "../views/Edit/EditCollection.vue";
+
+//---------------------------------------------------------------------
+//Edit
+//---------------------------------------------------------------------
+
+import CollectionEdit from "../views/Admin/Edit/CollectionEdit.vue";
+
+//---------------------------------------------------------------------
+//Views
+//---------------------------------------------------------------------
 import Collection from "../views/Collection.vue";
 import Project from "../views/Project.vue";
-import Login from "../views/Admin/Login.vue";
-import Homepage from "../views/Admin/Homepage.vue";
 
 const routes = [
   //base
@@ -57,8 +76,8 @@ const routes = [
   //admin-edit
   {
     path: "/admin/homepage/edit/collections/:id",
-    name: "EditCollection",
-    component: EditCollection,
+    name: "CollectionEdit",
+    component: CollectionEdit,
     props: true,
   },
   //default

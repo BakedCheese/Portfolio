@@ -8,6 +8,7 @@
 
       <div class="buttons">
         <GoToButton :name="'Collection'" :params="this.data.id" />
+        <EditButton :item="'collections'" :id="this.data.id" />
         <DeleteButton :item="'collections'" :id="this.data.id" />
       </div>
     </div>
@@ -45,9 +46,10 @@ import axios from "axios";
 import ProjectItem from "./project-item.vue";
 import DeleteButton from "./Buttons/delete-button.vue";
 import GoToButton from "./Buttons/goto-button.vue";
+import EditButton from "./Buttons/edit-button.vue";
 export default {
   props: ["data", "index"],
-  components: { ProjectItem, DeleteButton, GoToButton },
+  components: { ProjectItem, DeleteButton, GoToButton, EditButton },
 
   data() {
     return {
