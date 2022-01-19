@@ -1,7 +1,10 @@
 <template>
   <div class="list-item">
     <div v-if="this.showProjects" class="items">
-      <div class="made-item">Made on: {{ this.date }}</div>
+      <div>
+        <div class="date-item">Made on: {{ this.date }}</div>
+        <div class="date-item">Updated on: {{ this.date }}</div>
+      </div>
       <div class="buttons">
         <GoToButton :name="'Project'" :params="this.project.id" />
         <DeleteButton :item="'projects'" :id="this.project.id" />
@@ -15,6 +18,7 @@
     >
       <div class="id-item">{{ index + 1 }}</div>
       <div class="content-item">{{ project.title }}</div>
+      <img src="../../assets/icon/file-earmark-text.svg" alt="" />
     </div>
 
     <div v-if="this.showProjects" class="item-in-item">

@@ -1,14 +1,16 @@
 <template>
   <div class="list-item">
     <div v-if="this.showProjects" class="items">
-      <div class="made-item">Made on: {{ this.date }}</div>
+      <div class="date-item">Made on: {{ this.date }}</div>
       <div class="buttons">
         <DeleteButton :item="'pictures'" :id="this.picture.id" />
       </div>
     </div>
     <div @click="this.showProjects = !this.showProjects">
-      <div class="item" :class="{ 'item-active': this.showProjects }">
-        {{ this.picture.alt }}
+      <div class="item" :class="{ 'item-active-img': this.showProjects }">
+        <div class="id-item">{{ this.index + 1 }}</div>
+        <div class="content-item">{{ this.picture.alt }}</div>
+        <img src="../../assets/icon/file-image.svg" alt="" />
       </div>
     </div>
     <div v-if="this.showProjects">
@@ -20,7 +22,7 @@
 <script>
 import DeleteButton from "./Buttons/delete-button.vue";
 export default {
-  props: ["picture"],
+  props: ["picture", "index"],
   components: { DeleteButton },
   data() {
     return {

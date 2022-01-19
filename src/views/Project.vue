@@ -11,6 +11,7 @@
         <div class="margin"></div>
         <div v-for="para in paragraphs" :key="para.id">
           <LayoutContent :paragraph="para" />
+          <div class="margin"></div>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@
     <div v-if="this.pictures.length != 0">
       <div v-for="picture in pictures" :key="picture.id">
         <img class="picture" :src="picture.url" :alt="picture.alt" />
+        <div class="margin"></div>
       </div>
     </div>
 

@@ -1,7 +1,11 @@
 <template>
   <div class="list-item">
     <div v-if="this.showProjects" class="items">
-      <div class="made-item">Made on: {{ this.date }}</div>
+      <div>
+        <div class="date-item">Made on: {{ this.date }}</div>
+        <div class="date-item">Updated on: {{ this.date }}</div>
+      </div>
+
       <div class="buttons">
         <GoToButton :name="'Collection'" :params="this.data.id" />
         <DeleteButton :item="'collections'" :id="this.data.id" />
@@ -17,6 +21,7 @@
       <div class="content-item">
         {{ data.title }}
       </div>
+      <img src="../../assets/icon/collection.svg" alt="" />
     </div>
     <div v-if="this.showProjects" class="item-in-item">
       <div class="content">

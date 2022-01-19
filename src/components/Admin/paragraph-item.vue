@@ -1,7 +1,10 @@
 <template>
   <div class="list-item">
     <div v-if="this.showProjects" class="items">
-      <div class="made-item">Made on: {{ this.date }}</div>
+      <div>
+        <div class="date-item">Made on: {{ this.date }}</div>
+        <div class="date-item">Updated on: {{ this.date }}</div>
+      </div>
       <div class="buttons">
         <DeleteButton :item="'paragraphs'" :id="this.paragraph.id" />
       </div>
@@ -14,6 +17,7 @@
     >
       <div class="id-item">{{ paragraph.order_in_project + 1 }}</div>
       <div class="content-item">{{ paragraph.heading }}</div>
+      <img src="../../assets/icon/justify-left.svg" alt="" />
     </div>
 
     <div v-if="this.showProjects" class="item-in-item">
@@ -26,8 +30,8 @@
         <button @click="createPicture">Create new picture</button>
       </div>
       <div class="line"></div>
-      <div v-for="picture in this.pictures" :key="picture.id">
-        <PictureItem :picture="picture" />
+      <div v-for="(picture, index) in this.pictures" :key="picture.id">
+        <PictureItem :picture="picture" :index="index" />
       </div>
     </div>
   </div>
