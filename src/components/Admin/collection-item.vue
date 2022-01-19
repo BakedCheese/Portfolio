@@ -2,13 +2,17 @@
   <div class="list-item">
     <div v-if="this.showProjects" class="items">
       <div>
+        <div class="date-item">
+          <img src="../../assets/icon/collection.svg" alt="" />
+        </div>
+        <div class="date-item">ID: {{ this.data.id }}</div>
         <div class="date-item">Made on: {{ this.date }}</div>
         <div class="date-item">Updated on: {{ this.date }}</div>
       </div>
 
       <div class="buttons">
         <GoToButton :name="'Collection'" :params="this.data.id" />
-        <EditButton :item="'collections'" :id="this.data.id" />
+        <EditButton :routername="'CollectionEdit'" :id="this.data.id" />
         <DeleteButton :item="'collections'" :id="this.data.id" />
       </div>
     </div>
@@ -22,7 +26,6 @@
       <div class="content-item">
         {{ data.title }}
       </div>
-      <img src="../../assets/icon/collection.svg" alt="" />
     </div>
     <div v-if="this.showProjects" class="item-in-item">
       <div class="content">

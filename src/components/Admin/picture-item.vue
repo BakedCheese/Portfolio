@@ -1,7 +1,12 @@
 <template>
   <div class="list-item">
     <div v-if="this.showProjects" class="items">
-      <div class="date-item">Made on: {{ this.date }}</div>
+      <div>
+        <div class="date-item">
+          <img src="../../assets/icon/file-image.svg" alt="" />
+        </div>
+        <div class="date-item">Made on: {{ this.date }}</div>
+      </div>
       <div class="buttons">
         <DeleteButton :item="'pictures'" :id="this.picture.id" />
       </div>
@@ -10,7 +15,6 @@
       <div class="item" :class="{ 'item-active-img': this.showProjects }">
         <div class="id-item">{{ this.index + 1 }}</div>
         <div class="content-item">{{ this.picture.alt }}</div>
-        <img src="../../assets/icon/file-image.svg" alt="" />
       </div>
     </div>
     <div v-if="this.showProjects">

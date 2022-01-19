@@ -27,10 +27,42 @@ export default {
 
     async Delete() {
       try {
-        const response = await axios.delete(
-          `https://bakedcheese.nl/webserver/${this.$props.item}/${this.$props.id}`
-        );
-        this.$router.go();
+        if (this.$props.item == "paragraphs") {
+          const responseDeleted = await axios.get(
+            `https://bakedcheese.nl/webserver/paragraphs/${this.$props.id}`
+          );
+
+          let theDeletedParagraph = responseDeleted.data;
+
+          await axios.delete(
+            `https://bakedcheese.nl/webserver/${this.$props.item}/${this.$props.id}`
+          );
+
+          const response = await axios.get(
+            `https://bakedcheese.nl/webserver/paragraphs`
+          );
+
+          response.data.forEach(async (para) => {
+            if (para.project_id == theDeletedParagraph.project_id) {
+              if (
+                para.order_in_project > theDeletedParagraph.order_in_project
+              ) {
+                await axios.put(
+                  `https://bakedcheese.nl/webserver/paragraphs/${para.id}`,
+                  {
+                    order_in_project: para.order_in_project - 1,
+                  }
+                );
+              }
+            }
+          });
+        } else {
+          await axios.delete(
+            `https://bakedcheese.nl/webserver/${this.$props.item}/${this.$props.id}`
+          );
+        }
+
+        //this.$router.go();
       } catch (err) {
         console.log(err.message);
       }

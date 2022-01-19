@@ -1,23 +1,31 @@
 <template>
   <div class="container" style="max-width: 700px">
     <div class="form">
-      <h2>Edit collection: {{ this.title }}</h2>
+      <h2>Edit project: {{ this.title }}</h2>
       <div class="line"></div>
       <div class="margin"></div>
-      <h5>Collection content</h5>
+      <h5>Project content</h5>
       <div class="line"></div>
       <div class="margin"></div>
-      <input
-        type="text"
-        placeholder="Title of collection"
-        v-model="this.title"
-      />
+      <input type="text" placeholder="Title of project" v-model="this.title" />
       <div class="margin"></div>
       <textarea
         class="contents"
-        placeholder="Description of collection"
+        placeholder="Description of project"
         v-model="this.discription"
       />
+      <div class="margin"></div>
+      <select v-model="this.selected">
+        <option
+          v-for="collection in collections"
+          v-bind:value="collection.id"
+          :key="collection.id"
+        >
+          ID: {{ collection.id }} - Title: {{ collection.title }}
+        </option>
+        <option v-bind:value="null">NONE</option>
+      </select>
+
       <div class="margin"></div>
       <div>
         <button @click="Edit">Edit</button>
@@ -35,7 +43,9 @@ export default {
     return {
       title: "",
       discription: "",
-      collection: null,
+      project: null,
+      collections: [],
+      selected: null,
     };
   },
   beforeCreate() {
@@ -55,12 +65,14 @@ export default {
     async Edit() {
       try {
         await axios.put(
-          `https://bakedcheese.nl/webserver/collections/${this.$route.params.id}`,
+          `https://bakedcheese.nl/webserver/projects/${this.$route.params.id}`,
           {
             title: this.title,
             discription: this.discription,
+            collection_id: this.selected,
           }
         );
+
         this.$router.push({ name: "Homepage" });
       } catch (err) {
         console.log(err.message);
@@ -70,12 +82,25 @@ export default {
     async Load() {
       try {
         const response = await axios.get(
-          `https://bakedcheese.nl/webserver/collections/${this.$route.params.id}`
+          `https://bakedcheese.nl/webserver/projects/${this.$route.params.id}`
         );
 
-        this.collection = response.data;
-        this.title = this.collection.title;
-        this.discription = this.collection.discription;
+        this.project = response.data;
+        this.title = this.project.title;
+        this.discription = this.project.discription;
+
+        const responseCollection = await axios.get(
+          `https://bakedcheese.nl/webserver/collections`
+        );
+
+        this.collections = responseCollection.data;
+
+        for (let index = 0; index < this.collections.length; index++) {
+          if (this.collections[index].id == this.project.collection_id) {
+            this.selected = this.collections[index].id;
+            break;
+          }
+        }
       } catch (err) {
         console.log(err.message);
       }

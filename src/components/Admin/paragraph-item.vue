@@ -2,10 +2,14 @@
   <div class="list-item">
     <div v-if="this.showProjects" class="items">
       <div>
+        <div class="date-item">
+          <img src="../../assets/icon/justify-left.svg" alt="" />
+        </div>
         <div class="date-item">Made on: {{ this.date }}</div>
         <div class="date-item">Updated on: {{ this.date }}</div>
       </div>
       <div class="buttons">
+        <EditButton :routername="'ParagraphEdit'" :id="this.paragraph.id" />
         <DeleteButton :item="'paragraphs'" :id="this.paragraph.id" />
       </div>
     </div>
@@ -17,7 +21,6 @@
     >
       <div class="id-item">{{ paragraph.order_in_project + 1 }}</div>
       <div class="content-item">{{ paragraph.heading }}</div>
-      <img src="../../assets/icon/justify-left.svg" alt="" />
     </div>
 
     <div v-if="this.showProjects" class="item-in-item">
@@ -41,9 +44,10 @@
 import axios from "axios";
 import PictureItem from "./picture-item.vue";
 import DeleteButton from "./Buttons/delete-button.vue";
+import EditButton from "./Buttons/edit-button.vue";
 export default {
   props: ["paragraph"],
-  components: { PictureItem, DeleteButton },
+  components: { PictureItem, DeleteButton, EditButton },
   data() {
     return {
       pictures: [],

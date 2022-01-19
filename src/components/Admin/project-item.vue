@@ -2,11 +2,16 @@
   <div class="list-item">
     <div v-if="this.showProjects" class="items">
       <div>
+        <div class="date-item">
+          <img src="../../assets/icon/file-earmark-text.svg" alt="" />
+        </div>
+        <div class="date-item">ID: {{ this.project.id }}</div>
         <div class="date-item">Made on: {{ this.date }}</div>
         <div class="date-item">Updated on: {{ this.date }}</div>
       </div>
       <div class="buttons">
         <GoToButton :name="'Project'" :params="this.project.id" />
+        <EditButton :routername="'ProjectEdit'" :id="this.project.id" />
         <DeleteButton :item="'projects'" :id="this.project.id" />
       </div>
     </div>
@@ -18,7 +23,6 @@
     >
       <div class="id-item">{{ index + 1 }}</div>
       <div class="content-item">{{ project.title }}</div>
-      <img src="../../assets/icon/file-earmark-text.svg" alt="" />
     </div>
 
     <div v-if="this.showProjects" class="item-in-item">
@@ -44,6 +48,7 @@ import axios from "axios";
 import ParagraphItem from "./paragraph-item.vue";
 import DeleteButton from "./Buttons/delete-button.vue";
 import GoToButton from "./Buttons/goto-button.vue";
+import EditButton from "./Buttons/edit-button.vue";
 export default {
   props: ["project", "index"],
   data() {
@@ -53,7 +58,7 @@ export default {
       date: "",
     };
   },
-  components: { ParagraphItem, DeleteButton, GoToButton },
+  components: { ParagraphItem, DeleteButton, GoToButton, EditButton },
   mounted() {
     this.GetDate();
     this.Load();

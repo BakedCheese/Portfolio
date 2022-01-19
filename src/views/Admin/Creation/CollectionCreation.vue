@@ -15,7 +15,7 @@
       <div class="margin"></div>
       <textarea
         class="discription"
-        placeholder="Discription of collection"
+        placeholder="Description of collection"
         v-model="this.text[1]"
       />
       <div class="margin"></div>
