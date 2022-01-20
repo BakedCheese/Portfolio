@@ -70,6 +70,7 @@ export default {
             title: this.title,
             discription: this.discription,
             collection_id: this.selected,
+            updated: new Date().toISOString().slice(0, 19).replace("T", " "),
           }
         );
 

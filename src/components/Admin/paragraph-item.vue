@@ -5,8 +5,9 @@
         <div class="date-item">
           <img src="../../assets/icon/justify-left.svg" alt="" />
         </div>
+        <div class="date-item">ID: {{ this.paragraph.id }}</div>
         <div class="date-item">Made on: {{ this.date }}</div>
-        <div class="date-item">Updated on: {{ this.date }}</div>
+        <div class="date-item">Updated on: {{ this.updated }}</div>
       </div>
       <div class="buttons">
         <EditButton :routername="'ParagraphEdit'" :id="this.paragraph.id" />
@@ -53,6 +54,7 @@ export default {
       pictures: [],
       showProjects: false,
       date: "",
+      updated: "",
     };
   },
   mounted() {
@@ -72,6 +74,9 @@ export default {
 
     GetDate() {
       this.date = this.$props.paragraph.made.split("T")[0];
+      if (this.$props.paragraph.updated != null) {
+        this.updated = this.$props.paragraph.updated.split("T")[0];
+      }
     },
     async Load() {
       try {

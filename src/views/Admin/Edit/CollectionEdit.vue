@@ -59,6 +59,7 @@ export default {
           {
             title: this.title,
             discription: this.discription,
+            updated: new Date().toISOString().slice(0, 19).replace("T", " "),
           }
         );
         this.$router.push({ name: "Homepage" });

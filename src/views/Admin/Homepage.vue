@@ -3,6 +3,13 @@
     <h1>Welcome to admin control</h1>
     <div class="margin"></div>
     <div class="item-list-heading">
+      <div>Custom query</div>
+    </div>
+    <div class="line"></div>
+    <div class="margin"></div>
+    <customQuery />
+    <div class="margin"></div>
+    <div class="item-list-heading">
       <div>Collections</div>
       <button @click="createCollection">Create new collection</button>
     </div>
@@ -18,8 +25,9 @@
 <script>
 import axios from "axios";
 import collectionItem from "../../components/Admin/collection-item.vue";
+import customQuery from "../../components/Admin/custom-query.vue";
 export default {
-  components: { collectionItem },
+  components: { collectionItem, customQuery },
   beforeCreate() {
     if (!window.sessionStorage.getItem("key")) {
       this.$router.push({ name: "Login" });

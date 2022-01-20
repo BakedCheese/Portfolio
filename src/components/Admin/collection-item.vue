@@ -7,7 +7,7 @@
         </div>
         <div class="date-item">ID: {{ this.data.id }}</div>
         <div class="date-item">Made on: {{ this.date }}</div>
-        <div class="date-item">Updated on: {{ this.date }}</div>
+        <div class="date-item">Updated on: {{ this.updated }}</div>
       </div>
 
       <div class="buttons">
@@ -59,6 +59,7 @@ export default {
       projects: [],
       showProjects: false,
       date: "",
+      updated: "",
     };
   },
 
@@ -79,6 +80,9 @@ export default {
     },
     GetDate() {
       this.date = this.$props.data.made.split("T")[0];
+      if (this.$props.data.updated != null) {
+        this.updated = this.$props.data.updated.split("T")[0];
+      }
     },
     async Load() {
       try {

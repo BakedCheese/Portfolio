@@ -97,6 +97,7 @@ export default {
               content: this.content,
               heading: this.heading,
               order_in_project: this.orderObject.order_in_project,
+              updated: new Date().toISOString().slice(0, 19).replace("T", " "),
             }
           );
 
@@ -104,6 +105,7 @@ export default {
             `https://bakedcheese.nl/webserver/paragraphs/${this.orderObject.id}`,
             {
               order_in_project: this.first_orderObject.order_in_project,
+              updated: new Date().toISOString().slice(0, 19).replace("T", " "),
             }
           );
 
@@ -120,8 +122,6 @@ export default {
           );
 
           for (let index = 0; index < responseParagraph.data.length; index++) {
-            console.log(responseParagraph.data[index].id);
-            console.log(this.selected);
             if (responseParagraph.data[index].project_id == this.selected) {
               paragraphSizeFormOtherProject++;
               console.log(paragraphSizeFormOtherProject);
@@ -135,6 +135,7 @@ export default {
               heading: this.heading,
               project_id: this.selected,
               order_in_project: paragraphSizeFormOtherProject,
+              updated: new Date().toISOString().slice(0, 19).replace("T", " "),
             }
           );
 
@@ -149,6 +150,7 @@ export default {
             {
               content: this.content,
               heading: this.heading,
+              updated: new Date().toISOString().slice(0, 19).replace("T", " "),
             }
           );
         } catch (err) {

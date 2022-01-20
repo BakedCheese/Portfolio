@@ -7,7 +7,7 @@
         </div>
         <div class="date-item">ID: {{ this.project.id }}</div>
         <div class="date-item">Made on: {{ this.date }}</div>
-        <div class="date-item">Updated on: {{ this.date }}</div>
+        <div class="date-item">Updated on: {{ this.updated }}</div>
       </div>
       <div class="buttons">
         <GoToButton :name="'Project'" :params="this.project.id" />
@@ -56,6 +56,7 @@ export default {
       paragraphs: [],
       showProjects: false,
       date: "",
+      updated: "",
     };
   },
   components: { ParagraphItem, DeleteButton, GoToButton, EditButton },
@@ -76,6 +77,9 @@ export default {
     },
     GetDate() {
       this.date = this.$props.project.made.split("T")[0];
+      if (this.$props.project.updated != null) {
+        this.updated = this.$props.project.updated.split("T")[0];
+      }
     },
     async Load() {
       try {
