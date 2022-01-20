@@ -51,6 +51,7 @@
 
 <script>
 import axios from "axios";
+import { updateOrders } from "../../../scripts/updateOrder.js";
 export default {
   data() {
     return {
@@ -89,8 +90,10 @@ export default {
     },
 
     async Edit() {
+      //Change order in project with other paragraph
       if (this.first_orderObject != this.orderObject) {
         try {
+          //change the paragraph (order) your are editing
           await axios.put(
             `https://bakedcheese.nl/webserver/paragraphs/${this.$route.params.id}`,
             {
@@ -101,6 +104,7 @@ export default {
             }
           );
 
+          //change the paragraph order, with you're switching.
           await axios.put(
             `https://bakedcheese.nl/webserver/paragraphs/${this.orderObject.id}`,
             {
@@ -113,21 +117,26 @@ export default {
         } catch (err) {
           console.log(err.message);
         }
-      } else if (this.first_selected != this.selected) {
+      }
+      //Change project_id, so the paragraph will move to another project
+      else if (this.first_selected != this.selected) {
         try {
+          //Get the size of the list with paragraph that are connected to that project
           let paragraphSizeFormOtherProject = 0;
 
           const responseParagraph = await axios.get(
             `https://bakedcheese.nl/webserver/paragraphs`
           );
 
-          for (let index = 0; index < responseParagraph.data.length; index++) {
-            if (responseParagraph.data[index].project_id == this.selected) {
+          responseParagraph.data.forEach((resPara) => {
+            if (resPara.project_id == this.selected) {
               paragraphSizeFormOtherProject++;
-              console.log(paragraphSizeFormOtherProject);
             }
-          }
+          });
 
+          let MovingParagraph = this.paragraph;
+
+          //Change to project_id and order_in_project to be the last
           await axios.put(
             `https://bakedcheese.nl/webserver/paragraphs/${this.$route.params.id}`,
             {
@@ -138,6 +147,9 @@ export default {
               updated: new Date().toISOString().slice(0, 19).replace("T", " "),
             }
           );
+
+          //Update all order_in_project form where the paragraph is leaving
+          updateOrders(MovingParagraph);
 
           this.$router.push({ name: "Homepage" });
         } catch (err) {
@@ -190,14 +202,11 @@ export default {
             `https://bakedcheese.nl/webserver/paragraphs`
           );
 
-          for (let index = 0; index < responseParagraph.data.length; index++) {
-            if (
-              responseParagraph.data[index].project_id ==
-              this.paragraph.project_id
-            ) {
-              this.paragraphs.push(responseParagraph.data[index]);
+          responseParagraph.data.forEach((resPara) => {
+            if (resPara.project_id == this.paragraph.project_id) {
+              this.paragraphs.push(resPara);
             }
-          }
+          });
         } catch (err) {
           console.log(err.message);
         }
