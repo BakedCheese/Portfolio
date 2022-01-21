@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="max-width: 900px">
+  <div class="container admin" style="max-width: 900px">
     <h1>Welcome to admin control</h1>
     <div class="margin"></div>
     <div class="item-list-heading">
@@ -57,7 +57,7 @@
         Custom query
       </div>
       <button v-if="this.collectionsSee" @click="createCollection">
-        Create new collection
+        <div class="title">Create new collection</div>
       </button>
     </div>
     <div class="line"></div>

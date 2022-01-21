@@ -1,4 +1,15 @@
-.container {
+.default {
+  -ms-user-select: none;
+      user-select: none;
+  -webkit-user-select: none;
+  /*Safari*/
+  -moz-user-select: none;
+  /*Firefox*/
+  margin: 30px;
+  min-width: 280px;
+}
+
+.admin {
   -ms-user-select: none;
       user-select: none;
   -webkit-user-select: none;

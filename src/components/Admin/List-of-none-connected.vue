@@ -86,27 +86,5 @@ export default {
 </script>
 
 <style scoped>
-.none-connected-list-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 22px;
-}
-
-.none-connected-item {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 3px 0px;
-  font-size: 1.4rem;
-  /*border: #f9f9f9 3px solid;*/
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  margin-right: 3px;
-  padding-left: 30px;
-  padding-right: 30px;
-  transition: background 0.1s ease-in-out;
-  cursor: pointer;
-}
+@import "../../assets/css/admin.css";
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="max-width: 900px">
+  <div class="container default" style="max-width: 900px">
     <div class="block">
       <div class="inner-block">
         <div class="bblock">

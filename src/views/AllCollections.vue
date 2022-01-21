@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="max-width: 450px">
+  <div class="container default" style="max-width: 450px">
     <h1>All Collections</h1>
     <div class="margin"></div>
     <div v-if="this.collections.length > 0">

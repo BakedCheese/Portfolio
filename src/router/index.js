@@ -31,6 +31,7 @@ import ParagraphEdit from "../views/Admin/Edit/ParagraphEdit.vue";
 //---------------------------------------------------------------------
 import Collection from "../views/Collection.vue";
 import Project from "../views/Project.vue";
+import Aboutme from "../views/Aboutme.vue";
 
 const routes = [
   //base
@@ -111,6 +112,11 @@ const routes = [
     name: "Project",
     component: Project,
     props: true,
+  },
+  {
+    path: "/aboutme",
+    name: "AboutMe",
+    component: Aboutme,
   },
 ];
 
