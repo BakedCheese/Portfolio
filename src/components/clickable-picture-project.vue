@@ -47,7 +47,7 @@ export default {
 
         for (let index = 0; index < response.data.length; index++) {
           if (response.data[index].project_id == this.project.id) {
-            if (response.data[index].order_in_project == 0) {
+            if (response.data[index].has_picture == 1) {
               paragraph_id = response.data[index].id;
               break;
             }
