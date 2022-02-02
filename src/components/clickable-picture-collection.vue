@@ -64,7 +64,7 @@ export default {
 
           for (let index = 0; index < response.data.length; index++) {
             if (response.data[index].project_id == project_id) {
-              if (response.data[index].order_in_project == 0) {
+              if (response.data[index].has_picture == 1) {
                 paragraph_id = response.data[index].id;
                 break;
               }
@@ -74,8 +74,11 @@ export default {
             const response = await axios.get(
               `https://bakedcheese.nl/webserver/pictures`
             );
+
             for (let index = 0; index < response.data.length; index++) {
               if (response.data[index].paragraph_id == paragraph_id) {
+                console.log(response.data[index]);
+
                 this.alt = response.data[index].alt;
                 this.url = response.data[index].url;
                 break;
