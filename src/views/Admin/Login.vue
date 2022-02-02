@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="max-width: 450px">
+  <div class="container admin" style="max-width: 450px">
     <div class="margin"></div>
     <form>
       <p>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="max-width: 450px">
+  <div class="container default" style="max-width: 450px">
     <div class="block">
       <div class="inner-block">
         <div class="bblock">
@@ -14,7 +14,9 @@
           </p>
         </div>
         <div class="right-side">
-          <div class="button button-under-object">About me</div>
+          <div class="button button-under-object" @click="AboutMe">
+            About me
+          </div>
         </div>
         <div class="margin"></div>
         <div class="margin head">
@@ -56,6 +58,10 @@ export default {
   methods: {
     Create() {
       this.$router.push({ name: "CreateCollection" });
+    },
+
+    AboutMe() {
+      this.$router.push({ name: "AboutMe" });
     },
 
     AllCollection() {

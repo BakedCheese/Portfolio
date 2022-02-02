@@ -43,7 +43,7 @@ export default {
 
       try {
         const response = await axios.get(
-          `https://portfolio-app-6qg7c.ondigitalocean.app/webserver/projects`
+          `https://bakedcheese.nl/webserver/projects`
         );
 
         for (let index = 0; index < response.data.length; index++) {
@@ -59,7 +59,7 @@ export default {
 
         try {
           const response = await axios.get(
-            `https://portfolio-app-6qg7c.ondigitalocean.app/webserver/paragraphs`
+            `https://bakedcheese.nl/webserver/paragraphs`
           );
 
           for (let index = 0; index < response.data.length; index++) {
@@ -72,7 +72,7 @@ export default {
           }
           try {
             const response = await axios.get(
-              `https://portfolio-app-6qg7c.ondigitalocean.app/webserver/pictures`
+              `https://bakedcheese.nl/webserver/pictures`
             );
             for (let index = 0; index < response.data.length; index++) {
               if (response.data[index].paragraph_id == paragraph_id) {

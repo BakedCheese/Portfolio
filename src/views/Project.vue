@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="max-width: 900px">
+  <div class="container default" style="max-width: 900px">
     <div class="block">
       <div class="inner-block">
         <div class="bblock">
@@ -11,6 +11,7 @@
         <div class="margin"></div>
         <div v-for="para in paragraphs" :key="para.id">
           <LayoutContent :paragraph="para" />
+          <div class="margin"></div>
         </div>
       </div>
     </div>
