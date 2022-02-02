@@ -40,6 +40,42 @@ export default {
           );
 
           updateOrders(theDeletedParagraph);
+        }
+        if (this.$props.item == "pictures") {
+          let haspicture = false;
+          let Thispicture = null;
+
+          const GetAllPictures = await axios.get(
+            `https://bakedcheese.nl/webserver/pictures`
+          );
+
+          for (let index = 0; index < GetAllPictures.data.length; index++) {
+            if (GetAllPictures.data[index].id == this.$props.id) {
+              Thispicture = GetAllPictures.data[index];
+              for (let jndex = 0; jndex < GetAllPictures.data.length; jndex++) {
+                if (
+                  GetAllPictures.data[jndex].paragraph_id ==
+                  Thispicture.paragraph_id
+                ) {
+                  haspicture = true;
+                  break;
+                }
+              }
+            }
+          }
+
+          if (!haspicture) {
+            await axios.put(
+              `https://bakedcheese.nl/webserver/paragraphs/${this.picture.paragraph_id}`,
+              {
+                has_picture: 0,
+              }
+            );
+          }
+
+          await axios.delete(
+            `https://bakedcheese.nl/webserver/${this.$props.item}/${this.$props.id}`
+          );
         } else {
           await axios.delete(
             `https://bakedcheese.nl/webserver/${this.$props.item}/${this.$props.id}`

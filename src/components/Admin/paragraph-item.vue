@@ -89,22 +89,6 @@ export default {
             this.pictures.push(response.data[index]);
           }
         }
-
-        if (this.pictures.length == 0) {
-          await axios.put(
-            `https://bakedcheese.nl/webserver/paragraph/${this.$props.paragraph.id}`,
-            {
-              has_picture: 0,
-            }
-          );
-        } else {
-          await axios.put(
-            `https://bakedcheese.nl/webserver/paragraph/${this.$props.paragraph.id}`,
-            {
-              has_picture: 1,
-            }
-          );
-        }
       } catch (err) {
         console.log(err.message);
       }
