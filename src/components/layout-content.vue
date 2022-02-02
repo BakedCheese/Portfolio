@@ -1,17 +1,21 @@
 <template>
   <div class="block-content">
+    <div class="margin"></div>
+    <div class="wblock">
+      <h2 class="b-text">{{ paragraph.heading }}</h2>
+      <div v-if="paragraph.content.length > 0" class="margin"></div>
+      <p v-if="paragraph.content.length > 0" class="g-text content_of_para">
+        {{ paragraph.content }}
+      </p>
+    </div>
+
+    <div class="margin"></div>
+
     <div v-if="this.pictures.length != 0">
       <div v-for="picture in pictures" :key="picture.id">
         <img class="picture" :src="picture.url" :alt="picture.alt" />
         <div class="margin"></div>
       </div>
-    </div>
-
-    <div class="margin"></div>
-    <div class="wblock">
-      <h2 class="b-text">{{ paragraph.heading }}</h2>
-      <div class="margin"></div>
-      <p class="g-text content">{{ paragraph.content }}</p>
     </div>
   </div>
 </template>
@@ -54,7 +58,7 @@ export default {
 .block-content {
   text-align: start;
 }
-.content {
+.content_of_para {
   color: rgba(30, 30, 30, 0.8);
 
   font-size: 1.2rem;

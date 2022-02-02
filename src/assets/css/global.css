@@ -1,6 +1,6 @@
 .default {
   -ms-user-select: none;
-      user-select: none;
+  user-select: none;
   -webkit-user-select: none;
   /*Safari*/
   -moz-user-select: none;
@@ -11,7 +11,7 @@
 
 .admin {
   -ms-user-select: none;
-      user-select: none;
+  user-select: none;
   -webkit-user-select: none;
   /*Safari*/
   -moz-user-select: none;
@@ -39,18 +39,18 @@
 .head {
   background-color: #1e1e1e;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   height: 100px;
   border-radius: 50px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
-          box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
   font-size: 1.2rem;
 }
 /*# sourceMappingURL=global.css.map */
