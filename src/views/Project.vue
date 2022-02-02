@@ -1,13 +1,9 @@
 <template>
-  <div class="container default" style="max-width: 900px">
+  <div class="container default">
     <div class="block">
       <div class="inner-block">
-        <div class="bblock">
-          <h2 class="w-text fw-bolder spacing">Project: {{ this.title }}</h2>
-        </div>
-        <div class="wblock">
-          <p class="g-text">{{ this.discription }}</p>
-        </div>
+        <h2 class="b-text fw-bolder spacing">Project: {{ this.title }}</h2>
+        <p class="g-text">{{ this.discription }}</p>
         <div class="margin"></div>
         <div v-for="para in paragraphs" :key="para.id">
           <LayoutContent :paragraph="para" />
@@ -63,44 +59,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.block {
-  display: flex;
-  justify-content: center;
-}
-.inner-block {
-  width: 100%;
-  max-width: 450px;
-}
-.bblock {
-  color: #f9f9f9;
-  background-color: #1e1e1e;
-  border-radius: 50px;
-  letter-spacing: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 183px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
-  padding-bottom: 20px;
-}
-
-.wblock {
-  color: rgba(30, 30, 30, 0.8);
-  background-color: #f9f9f9;
-  border-radius: 50px;
-
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
-  margin-top: -55px;
-  z-index: 2;
-  padding: 23px 30px 17px 30px;
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 1.6rem;
-}
-</style>
+<style></style>

@@ -77,7 +77,7 @@ export default {
 
 <style scoped>
 .button {
-  border-radius: 50px;
+  border-radius: 10px;
   height: 100px;
   cursor: pointer;
   display: flex;
@@ -96,13 +96,13 @@ export default {
   width: 100%;
   height: 100%;
   background-color: #f9f9f9;
-  border-radius: 0px 50px 50px 0px;
+  border-radius: 0px 10px 10px 0px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 .picture {
-  border-radius: 50px 0px 0px 50px;
+  border-radius: 10px 0px 0px 10px;
   min-width: 100px;
 
   width: 20%;

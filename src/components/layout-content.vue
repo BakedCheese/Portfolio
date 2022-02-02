@@ -68,14 +68,12 @@ export default {
 .wblock {
   background-color: #f9f9f9;
   padding: 30px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
-  border-radius: 50px;
+  border-radius: 10px;
 }
 .picture {
-  border-radius: 50px;
+  border-radius: 10px;
   width: 100%;
   height: 280px;
   object-fit: cover;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
 }
 </style>

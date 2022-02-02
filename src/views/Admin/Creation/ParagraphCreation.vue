@@ -50,28 +50,13 @@ export default {
     },
 
     async Create() {
-      if (this.pictures.length == 0) {
-        await axios.put(
-          `https://bakedcheese.nl/webserver/paragraph/${this.$props.paragraph.id}`,
-          {
-            has_picture: 0,
-          }
-        );
-      } else {
-        await axios.put(
-          `https://bakedcheese.nl/webserver/paragraph/${this.$props.paragraph.id}`,
-          {
-            has_picture: 1,
-          }
-        );
-      }
-
       try {
         await axios.post(`https://bakedcheese.nl/webserver/paragraphs`, {
           order_in_project: this.$props.paragraphssize,
           heading: this.heading,
           content: this.content,
           project_id: this.$props.project_id,
+          has_picture: 0,
         });
 
         this.$router.push({ name: "Homepage" });

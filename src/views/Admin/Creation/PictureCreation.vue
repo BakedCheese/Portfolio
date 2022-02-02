@@ -50,6 +50,13 @@ export default {
             paragraph_id: this.$props.paragraph_id,
           });
 
+          await axios.put(
+            `https://bakedcheese.nl/webserver/paragraphs/${this.$props.paragraph_id}`,
+            {
+              has_picture: 1,
+            }
+          );
+
           this.$router.push({ name: "Homepage" });
         } else {
           console.log("Can't add, because there is no content!");

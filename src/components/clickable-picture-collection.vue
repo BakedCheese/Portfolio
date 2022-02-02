@@ -77,8 +77,6 @@ export default {
 
             for (let index = 0; index < response.data.length; index++) {
               if (response.data[index].paragraph_id == paragraph_id) {
-                console.log(response.data[index]);
-
                 this.alt = response.data[index].alt;
                 this.url = response.data[index].url;
                 break;
@@ -107,7 +105,7 @@ export default {
   align-items: center;
 }
 .picture {
-  border-radius: 50px;
+  border-radius: 10px;
   width: 100%;
   height: 280px;
   object-fit: cover;

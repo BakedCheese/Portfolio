@@ -1,16 +1,20 @@
 <template>
-  <div class="container default" style="max-width: 450px">
-    <h1>All Collections</h1>
-    <div class="margin"></div>
-    <div v-if="this.collections.length > 0">
-      <div v-for="collection in collections" :key="collection.id">
-        <ClickablePictureCollection :collection_id="collection.id" />
+  <div class="container default">
+    <div class="block">
+      <div class="inner-block">
+        <h4 class="b-text fw-bold spacing">All Collections</h4>
         <div class="margin"></div>
-      </div>
-    </div>
-    <div v-else>
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
+        <div v-if="this.collections.length > 0">
+          <div v-for="collection in collections" :key="collection.id">
+            <ClickablePictureCollection :collection_id="collection.id" />
+            <div class="margin"></div>
+          </div>
+        </div>
+        <div v-else>
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
