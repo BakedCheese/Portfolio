@@ -11,9 +11,6 @@
 .center {
   display: flex;
   justify-content: center;
-  user-select: none;
-  -webkit-user-select: none; /*Safari*/
-  -moz-user-select: none; /*Firefox*/
 }
 
 .footer {
