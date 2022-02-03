@@ -13,7 +13,7 @@
 
     <div v-if="this.pictures.length != 0">
       <div v-for="picture in pictures" :key="picture.id">
-        <img class="picture" :src="picture.url" :alt="picture.alt" />
+        <imageinlayout :picture="picture" />
         <div class="margin"></div>
       </div>
     </div>
@@ -22,8 +22,11 @@
 
 <script>
 import axios from "axios";
+import imageinlayout from "./image-in-layout.vue";
 export default {
   props: ["paragraph"],
+
+  components: { imageinlayout },
 
   data() {
     return {
@@ -55,6 +58,11 @@ export default {
 </script>
 
 <style scoped>
+button {
+  border: none;
+  box-shadow: none;
+  padding: 0px;
+}
 .block-content {
   text-align: start;
 }
@@ -69,11 +77,5 @@ export default {
   background-color: #f9f9f9;
   padding: 30px;
   border-radius: 10px;
-}
-.picture {
-  border-radius: 10px;
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
 }
 </style>
