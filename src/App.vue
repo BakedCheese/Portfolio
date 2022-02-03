@@ -4,6 +4,7 @@
   </div>
   <div class="center text-center">
     <footer class="footer">Made by BakedCheese</footer>
+    <div class="margin"></div>
   </div>
 </template>
 

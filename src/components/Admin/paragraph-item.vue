@@ -34,8 +34,8 @@
         <button @click="createPicture">Create new picture</button>
       </div>
       <div class="line"></div>
-      <div v-for="(picture, index) in this.pictures" :key="picture.id">
-        <PictureItem :picture="picture" :index="index" />
+      <div v-for="picture in this.pictures" :key="picture.id">
+        <PictureItem :picture="picture" />
       </div>
     </div>
   </div>
@@ -67,7 +67,8 @@ export default {
         name: "CreatePicture",
         params: {
           paragraph_id: this.$props.paragraph.id,
-          paragraph_title: this.$props.paragraph.title,
+          paragraph_title: this.$props.paragraph.heading,
+          picturessize: this.pictures.length,
         },
       });
     },

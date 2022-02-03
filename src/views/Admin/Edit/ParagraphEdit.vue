@@ -51,7 +51,7 @@
 
 <script>
 import axios from "axios";
-import { updateOrders } from "../../../scripts/updateOrder.js";
+import { updateOrdersPara } from "../../../scripts/updateOrder.js";
 export default {
   data() {
     return {
@@ -149,7 +149,7 @@ export default {
           );
 
           //Update all order_in_project form where the paragraph is leaving
-          updateOrders(MovingParagraph);
+          updateOrdersPara(MovingParagraph);
 
           this.$router.push({ name: "Homepage" });
         } catch (err) {

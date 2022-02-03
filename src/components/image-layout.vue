@@ -32,9 +32,19 @@ export default {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
   transition: height 0.4s ease-in-out;
 }
-.picture:hover {
-  height: 500px;
+
+@media only screen and (min-width: 600px) {
+  .picture:hover {
+    height: 500px;
+  }
 }
+
+@media only screen and (max-width: 600px) {
+  .picture {
+    height: 170px;
+  }
+}
+
 .img-fluid {
   padding: 0px 20px;
 }

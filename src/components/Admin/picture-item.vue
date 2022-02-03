@@ -5,15 +5,17 @@
         <div class="date-item">
           <img src="../../assets/icon/file-image.svg" alt="" />
         </div>
+        <div class="date-item">ID: {{ this.picture.id }}</div>
         <div class="date-item">Made on: {{ this.date }}</div>
       </div>
       <div class="buttons">
+        <EditButton :routername="'PictureEdit'" :id="this.picture.id" />
         <DeleteButton :item="'pictures'" :id="this.picture.id" />
       </div>
     </div>
     <div @click="this.showProjects = !this.showProjects">
       <div class="item" :class="{ 'item-active-img': this.showProjects }">
-        <div class="id-item">{{ this.index + 1 }}</div>
+        <div class="id-item">{{ this.picture.order_in_paragraph + 1 }}</div>
         <div class="content-item">{{ this.picture.alt }}</div>
       </div>
     </div>
@@ -25,9 +27,10 @@
 
 <script>
 import DeleteButton from "./Buttons/delete-button.vue";
+import EditButton from "./Buttons/edit-button.vue";
 export default {
-  props: ["picture", "index"],
-  components: { DeleteButton },
+  props: ["picture"],
+  components: { EditButton, DeleteButton },
   data() {
     return {
       showProjects: false,

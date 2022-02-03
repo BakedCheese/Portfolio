@@ -1,5 +1,8 @@
 <template>
   <div class="container default">
+    <div class="directions">
+      <small> <a @click="GotoHome">Home </a> > {{ this.title }}</small>
+    </div>
     <div class="block">
       <div class="inner-block">
         <h2 class="b-text fw-bolder spacing">Collection: {{ this.title }}</h2>
@@ -26,6 +29,8 @@ export default {
   components: { ClickablePictureProject },
   created() {
     document.title = "...";
+  },
+  mounted() {
     this.load();
   },
   data() {
@@ -36,6 +41,11 @@ export default {
     };
   },
   methods: {
+    GotoHome() {
+      this.$router.push({
+        name: "Home",
+      });
+    },
     async load() {
       try {
         const response = await axios.get(
