@@ -1,5 +1,5 @@
 <template>
-  <div class="container default" style="">
+  <div class="container default">
     <div class="block">
       <div class="inner-block">
         <h2 class="b-text fw-bolder">Hello . Osu . Morge</h2>
@@ -82,21 +82,6 @@ export default {
 
 .spacing {
   letter-spacing: 3px;
-}
-
-@media only screen and (max-width: 600px) {
-  .wblock {
-    padding: 26px 28px 14px 28px;
-    line-height: 1.4rem;
-    font-size: 0.9rem;
-  }
-}
-@media only screen and (max-width: 300px) {
-  .wblock {
-    padding: 26px 28px 14px 28px;
-    line-height: 1rem;
-    font-size: 0.8rem;
-  }
 }
 
 .button {

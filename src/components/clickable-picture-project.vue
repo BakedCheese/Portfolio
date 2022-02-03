@@ -33,7 +33,9 @@ export default {
     gotoProject() {
       this.$router.push({
         name: "Project",
-        params: { id: this.project.id },
+        params: {
+          id: this.project.id,
+        },
       });
     },
 

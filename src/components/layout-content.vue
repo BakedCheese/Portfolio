@@ -1,10 +1,9 @@
 <template>
   <div class="block-content">
     <div class="margin"></div>
-    <div class="wblock">
-      <h2 class="b-text">{{ paragraph.heading }}</h2>
-      <div v-if="paragraph.content.length > 0" class="margin"></div>
-      <p v-if="paragraph.content.length > 0" class="g-text content_of_para">
+    <div v-if="paragraph.content.length > 0" class="wblock">
+      <div class="margin"></div>
+      <p class="g-text content_of_para">
         {{ paragraph.content }}
       </p>
     </div>
@@ -22,7 +21,7 @@
 
 <script>
 import axios from "axios";
-import imageinlayout from "./image-in-layout.vue";
+import imageinlayout from "./image-layout.vue";
 export default {
   props: ["paragraph"],
 
@@ -72,10 +71,5 @@ button {
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.45rem;
-}
-.wblock {
-  background-color: #f9f9f9;
-  padding: 30px;
-  border-radius: 10px;
 }
 </style>

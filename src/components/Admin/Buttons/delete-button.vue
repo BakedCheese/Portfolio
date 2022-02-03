@@ -13,7 +13,10 @@
 
 <script>
 import axios from "axios";
-import { updateOrders } from "../../../scripts/updateOrder.js";
+import {
+  updateOrdersPara,
+  updateOrdersPic,
+} from "../../../scripts/updateOrder.js";
 export default {
   props: ["item", "id"],
   data() {
@@ -39,7 +42,7 @@ export default {
             `https://bakedcheese.nl/webserver/${this.$props.item}/${this.$props.id}`
           );
 
-          updateOrders(theDeletedParagraph);
+          updateOrdersPara(theDeletedParagraph);
         }
         if (this.$props.item == "pictures") {
           let haspicture = false;
@@ -73,9 +76,17 @@ export default {
             );
           }
 
+          const responseDeleted = await axios.get(
+            `https://bakedcheese.nl/webserver/pictures/${this.$props.id}`
+          );
+
+          let theDeletedPicture = responseDeleted.data;
+
           await axios.delete(
             `https://bakedcheese.nl/webserver/${this.$props.item}/${this.$props.id}`
           );
+
+          updateOrdersPic(theDeletedPicture);
         } else {
           await axios.delete(
             `https://bakedcheese.nl/webserver/${this.$props.item}/${this.$props.id}`

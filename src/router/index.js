@@ -25,6 +25,7 @@ import CreatePicture from "../views/Admin/Creation/PictureCreation.vue";
 import CollectionEdit from "../views/Admin/Edit/CollectionEdit.vue";
 import ProjectEdit from "../views/Admin/Edit/ProjectEdit.vue";
 import ParagraphEdit from "../views/Admin/Edit/ParagraphEdit.vue";
+import PictureEdit from "../views/Admin/Edit/PictureEdit.vue";
 
 //---------------------------------------------------------------------
 //Views
@@ -93,6 +94,12 @@ const routes = [
     path: "/admin/homepage/edit/paragraph/:id",
     name: "ParagraphEdit",
     component: ParagraphEdit,
+    props: true,
+  },
+  {
+    path: "/admin/homepage/edit/picture/:id",
+    name: "PictureEdit",
+    component: PictureEdit,
     props: true,
   },
   //default

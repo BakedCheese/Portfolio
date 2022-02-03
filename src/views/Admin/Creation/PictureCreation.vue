@@ -14,6 +14,8 @@
       <div>
         <button @click="Create">Add</button>
         <div class="margin"></div>
+        <button @click="CreateAndMore">Add & More</button>
+        <div class="margin"></div>
         <button @click="Canel">Cancel</button>
       </div>
     </div>
@@ -23,7 +25,7 @@
 <script>
 import axios from "axios";
 export default {
-  props: ["paragraph_id", "paragraph_title"],
+  props: ["paragraph_id", "paragraph_title", "picturessize"],
   data() {
     return {
       url: "",
@@ -45,6 +47,7 @@ export default {
       try {
         if (this.url && this.alt) {
           await axios.post(`https://bakedcheese.nl/webserver/pictures`, {
+            order_in_paragraph: this.$props.picturessize,
             url: this.url,
             alt: this.alt,
             paragraph_id: this.$props.paragraph_id,
@@ -58,6 +61,33 @@ export default {
           );
 
           this.$router.push({ name: "Homepage" });
+        } else {
+          console.log("Can't add, because there is no content!");
+        }
+      } catch (err) {
+        console.log(err.message);
+      }
+    },
+
+    async CreateAndMore() {
+      try {
+        if (this.url && this.alt) {
+          await axios.post(`https://bakedcheese.nl/webserver/pictures`, {
+            order_in_paragraph: this.$props.picturessize,
+            url: this.url,
+            alt: this.alt,
+            paragraph_id: this.$props.paragraph_id,
+          });
+
+          await axios.put(
+            `https://bakedcheese.nl/webserver/paragraphs/${this.$props.paragraph_id}`,
+            {
+              has_picture: 1,
+            }
+          );
+
+          this.url = "";
+          this.alt = "";
         } else {
           console.log("Can't add, because there is no content!");
         }
