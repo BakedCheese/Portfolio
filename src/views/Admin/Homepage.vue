@@ -85,6 +85,10 @@ export default {
   mounted() {
     this.load();
   },
+
+  created() {
+    document.title = "Admin Contol";
+  },
   data() {
     return {
       collections: [],

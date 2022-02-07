@@ -15,6 +15,7 @@
         v-model="this.discription"
       />
       <div class="margin"></div>
+
       <div>
         <button @click="Create">Add</button>
         <div class="margin"></div>
@@ -26,10 +27,13 @@
 
 <script>
 import axios from "axios";
+
 export default {
   props: ["collection_id", "collection_title"],
+
   data() {
     return {
+      icons: [],
       title: "",
       discription: "",
       create_in_title: this.$props.collection_title,
@@ -40,11 +44,26 @@ export default {
       this.$router.push({ name: "Login" });
     }
   },
+
+  mounted() {
+    this.Load();
+  },
+
   methods: {
     Canel() {
       this.$router.push({ name: "Homepage" });
     },
 
+    async Load() {
+      try {
+        const response = await axios.get(
+          `https://bakedcheese.nl/webserver/icons`
+        );
+        this.icons = response.data;
+      } catch (err) {
+        console.log(err.message);
+      }
+    },
     async Create() {
       try {
         if (this.title && this.discription) {

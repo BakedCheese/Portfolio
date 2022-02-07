@@ -18,25 +18,6 @@
         <DeleteButton :item="'projects'" :id="project.id" />
       </div>
     </div>
-
-    <div class="item-list-heading">
-      <div>Paragraphs</div>
-    </div>
-    <div class="line"></div>
-    <div class="margin"></div>
-    <div
-      class="none-connected-list-item"
-      v-for="paragraph in this.paragraphs"
-      :key="paragraph.id"
-    >
-      <div class="none-connected-item">
-        {{ paragraph.heading }}
-      </div>
-      <div class="buttons">
-        <EditButton :routername="'ParagraphEdit'" :id="paragraph.id" />
-        <DeleteButton :item="'paragraphs'" :id="paragraph.id" />
-      </div>
-    </div>
   </div>
 </template>
 
@@ -49,7 +30,6 @@ export default {
   data() {
     return {
       projects: [],
-      paragraphs: [],
     };
   },
   mounted() {
@@ -65,16 +45,6 @@ export default {
         responseProjects.data.forEach((resProj) => {
           if (resProj.collection_id == null) {
             this.projects.push(resProj);
-          }
-        });
-
-        const responseParagraphs = await axios.get(
-          "https://bakedcheese.nl/webserver/paragraphs"
-        );
-
-        responseParagraphs.data.forEach((resPara) => {
-          if (resPara.project_id == null) {
-            this.paragraphs.push(resPara);
           }
         });
       } catch (err) {

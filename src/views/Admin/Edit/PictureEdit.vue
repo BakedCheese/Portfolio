@@ -90,8 +90,6 @@ export default {
               order_in_paragraph: this.first_orderObject.order_in_paragraph,
             }
           );
-
-          this.$router.push({ name: "Homepage" });
         } catch (err) {
           console.log(err.message);
         }
@@ -108,6 +106,8 @@ export default {
           console.log(err.message);
         }
       }
+
+      this.$router.push({ name: "Homepage" });
     },
 
     async Load() {
