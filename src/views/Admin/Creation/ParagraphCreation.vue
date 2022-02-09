@@ -7,6 +7,12 @@
       <h5>Paragraph content</h5>
       <div class="line"></div>
       <div class="margin"></div>
+      <div class="links">
+        <input type="checkbox" @change="this.links = !this.links" />
+        <small>Links</small>
+      </div>
+
+      <div class="margin"></div>
       <input
         type="text"
         placeholder="Heading of paragraph"
@@ -18,6 +24,7 @@
         placeholder="Content of the paragraph"
         v-model="this.content"
       />
+
       <div class="margin"></div>
       <div>
         <button @click="Create">Add</button>
@@ -37,6 +44,7 @@ export default {
       heading: "",
       content: "",
       create_in_title: this.$props.project_title,
+      links: false,
     };
   },
   beforeCreate() {
@@ -57,6 +65,7 @@ export default {
           content: this.content,
           project_id: this.$props.project_id,
           has_picture: 0,
+          links: this.links,
         });
 
         this.$router.push({ name: "Homepage" });
@@ -70,4 +79,10 @@ export default {
 
 <style scoped>
 @import "../../../assets/css/admin.css";
+.links {
+  display: inline-block;
+}
+.links input {
+  width: 20px;
+}
 </style>

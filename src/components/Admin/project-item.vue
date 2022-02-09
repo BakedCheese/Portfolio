@@ -29,11 +29,7 @@
       <div class="content">
         {{ this.project.discription }}
       </div>
-      <div class="icon-holder" v-for="icon in this.icons" :key="icon.id">
-        <a :href="icon.ref" target="_blank"
-          ><img class="icon" :src="icon.url" :alt="icon.alt"
-        /></a>
-      </div>
+
       <div class="margin"></div>
 
       <div class="item-list-heading">
@@ -59,7 +55,7 @@ export default {
   data() {
     return {
       paragraphs: [],
-      icons: [],
+
       showProjects: false,
       date: "",
       updated: "",
@@ -98,22 +94,6 @@ export default {
             this.paragraphs.push(response.data[index]);
           }
         }
-
-        const responseProjectIcon = await axios.get(
-          `https://bakedcheese.nl/webserver/p_i`
-        );
-
-        for (let index = 0; index < responseProjectIcon.data.length; index++) {
-          if (
-            responseProjectIcon.data[index].project_id == this.$props.project.id
-          ) {
-            const responseIcon = await axios.get(
-              `https://bakedcheese.nl/webserver/icons/${responseProjectIcon.data[index].icon_id}`
-            );
-
-            this.icons.push(responseIcon.data);
-          }
-        }
       } catch (err) {
         console.log(err.message);
       }
@@ -122,10 +102,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.icon-holder {
-  margin-top: 22px;
-  display: flex;
-  justify-content: end;
-}
-</style>
+<style scoped></style>
