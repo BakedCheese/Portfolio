@@ -1,5 +1,7 @@
 <template>
   <form class="form">
+    <h5 v-if="this.history.length > 0">History</h5>
+    <div v-if="this.history.length > 0" class="margin"></div>
     <div v-if="this.history.length > 0" class="scroll-list">
       <div v-for="hist in this.history" :key="hist.index">
         <p>{{ hist }}</p>

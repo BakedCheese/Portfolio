@@ -1,9 +1,14 @@
 <template>
   <div class="list-item">
     <div v-if="this.showProjects" class="items">
-      <div>
+      <div class="date-item-holder">
         <div class="date-item">
-          <img src="../../assets/icon/justify-left.svg" alt="" />
+          <img
+            v-if="!this.paragraph.links"
+            src="../../assets/icon/justify-left.svg"
+            alt=""
+          />
+          <img v-else src="../../assets/icon/link-45deg.svg" alt="Links" />
         </div>
         <div class="date-item">ID: {{ this.paragraph.id }}</div>
         <div class="date-item">Made on: {{ this.date }}</div>
@@ -21,7 +26,13 @@
       @click="this.showProjects = !this.showProjects"
     >
       <div class="id-item">{{ paragraph.order_in_project + 1 }}</div>
+
       <div class="content-item">{{ paragraph.heading }}</div>
+      <img
+        v-if="this.paragraph.links && !this.showProjects"
+        src="../../assets/icon/link-45deg.svg"
+        alt="Links"
+      />
     </div>
 
     <div v-if="this.showProjects" class="item-in-item">
@@ -98,4 +109,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped></style>

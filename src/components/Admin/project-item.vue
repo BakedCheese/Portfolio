@@ -1,7 +1,7 @@
 <template>
   <div class="list-item">
     <div v-if="this.showProjects" class="items">
-      <div>
+      <div class="date-item-holder">
         <div class="date-item">
           <img src="../../assets/icon/file-earmark-text.svg" alt="" />
         </div>
@@ -29,6 +29,7 @@
       <div class="content">
         {{ this.project.discription }}
       </div>
+
       <div class="margin"></div>
 
       <div class="item-list-heading">
@@ -54,6 +55,7 @@ export default {
   data() {
     return {
       paragraphs: [],
+
       showProjects: false,
       date: "",
       updated: "",
@@ -100,4 +102,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped></style>

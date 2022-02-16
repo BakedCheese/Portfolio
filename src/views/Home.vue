@@ -17,7 +17,7 @@
         <div class="margin">
           <h4 class="b-text fw-bold spacing">Latest Collections</h4>
         </div>
-        <div class="some-collections">
+        <div class="some-collections" v-if="collections.length > 0">
           <ClickablePictureCollection :collection_id="collections[0].id" />
           <div class="margin"></div>
           <ClickablePictureCollection :collection_id="collections[1].id" />
@@ -45,8 +45,11 @@ export default {
   },
 
   created() {
-    this.load();
     document.title = "Welcome";
+  },
+
+  mounted() {
+    this.load();
   },
 
   methods: {

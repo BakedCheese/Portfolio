@@ -112,8 +112,6 @@ export default {
               updated: new Date().toISOString().slice(0, 19).replace("T", " "),
             }
           );
-
-          this.$router.push({ name: "Homepage" });
         } catch (err) {
           console.log(err.message);
         }
@@ -150,8 +148,6 @@ export default {
 
           //Update all order_in_project form where the paragraph is leaving
           updateOrdersPara(MovingParagraph);
-
-          this.$router.push({ name: "Homepage" });
         } catch (err) {
           console.log(err.message);
         }
@@ -169,6 +165,8 @@ export default {
           console.log(err.message);
         }
       }
+
+      this.$router.push({ name: "Homepage" });
     },
 
     async Load() {

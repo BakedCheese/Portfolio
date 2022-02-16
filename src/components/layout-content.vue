@@ -3,9 +3,12 @@
     <div class="margin"></div>
     <div v-if="paragraph.content.length > 0" class="wblock">
       <div class="margin"></div>
-      <p class="g-text content_of_para">
+      <p v-if="!paragraph.links" class="g-text content_of_para">
         {{ paragraph.content }}
       </p>
+      <a v-else :href="paragraph.content" target="_blank">{{
+        paragraph.content
+      }}</a>
     </div>
 
     <div class="margin"></div>

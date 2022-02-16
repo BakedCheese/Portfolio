@@ -19,7 +19,7 @@
             :key="para.id"
             class="list-group-item list-group-item-action"
             :href="para"
-            >{{ paragraphs[index].heading }}
+            >{{ this.paragraphsIdTitle[index].heading }}
           </a>
         </div>
         <div class="margin"></div>
@@ -32,9 +32,14 @@
           class="scrollspy-example"
           tabindex="0"
         >
-          <h2 class="b-text" :id="para.id">{{ para.heading }}</h2>
-          <LayoutContent :paragraph="para" />
-          <div class="margin"></div>
+          <h2 v-if="!para.links" class="b-text" :id="para.id">
+            {{ para.heading }}
+          </h2>
+          <LayoutContent v-if="!para.links" :paragraph="para" />
+          <p v-else class="b-text link">
+            {{ para.heading }} - <a :href="para.content">{{ para.content }}</a>
+          </p>
+          <div v-if="!para.links" class="margin"></div>
         </div>
       </div>
     </div>
@@ -57,6 +62,7 @@ export default {
       discription: "",
       paragraphs: [],
       paragraphsId: [],
+      paragraphsIdTitle: [],
       collectionTitle: "",
     };
   },
@@ -89,8 +95,10 @@ export default {
           for (let index = 0; index < response.data.length; index++) {
             if (response.data[index].project_id == this.$route.params.id) {
               this.paragraphs.push(response.data[index]);
-
-              this.paragraphsId.push("#" + response.data[index].id);
+              if (!response.data[index].links) {
+                this.paragraphsId.push("#" + response.data[index].id);
+                this.paragraphsIdTitle.push(response.data[index]);
+              }
             }
           }
         } catch (err) {
@@ -110,4 +118,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.link {
+  font-weight: bold;
+  padding: 8px 0px 8px 15px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px;
+  border-radius: 10px;
+}
+</style>
