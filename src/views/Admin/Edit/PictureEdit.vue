@@ -11,6 +11,10 @@
       <div class="margin"></div>
       <input type="text" placeholder="ALT" v-model="this.alt" />
       <div class="margin"></div>
+      <input type="text" placeholder="Caption" v-model="this.cap" />
+      <div class="margin"></div>
+      <input type="text" placeholder="Reference" v-model="this.ref" />
+      <div class="margin"></div>
       <div>
         <div class="margin"></div>
         <select v-if="this.canChooseOrder" v-model="this.orderObject">
@@ -38,6 +42,8 @@ export default {
     return {
       url: "",
       alt: "",
+      cap: "",
+      ref: "",
       picture: null,
       pictures: [],
       first_selected: null,
@@ -79,6 +85,8 @@ export default {
             {
               url: this.url,
               alt: this.alt,
+              caption: this.cap,
+              reference: this.ref,
               order_in_paragraph: this.orderObject.order_in_paragraph,
             }
           );
@@ -100,6 +108,8 @@ export default {
             {
               url: this.url,
               alt: this.alt,
+              caption: this.cap,
+              reference: this.ref,
             }
           );
         } catch (err) {
@@ -119,6 +129,8 @@ export default {
         this.picture = response.data;
         this.url = this.picture.url;
         this.alt = this.picture.alt;
+        this.cap = this.picture.caption;
+        this.ref = this.picture.reference;
         this.first_selected = this.picture.paragraph_id;
         this.orderObject = this.picture;
         this.first_orderObject = this.orderObject;

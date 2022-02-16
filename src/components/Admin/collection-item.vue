@@ -1,7 +1,7 @@
 <template>
   <div class="list-item">
     <div v-if="this.showProjects" class="items">
-      <div>
+      <div class="date-item-holder">
         <div class="date-item">
           <img src="../../assets/icon/collection.svg" alt="" />
         </div>

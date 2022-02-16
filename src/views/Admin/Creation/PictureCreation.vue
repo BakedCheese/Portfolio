@@ -11,6 +11,10 @@
       <div class="margin"></div>
       <input type="text" placeholder="ALT" v-model="this.alt" />
       <div class="margin"></div>
+      <input type="text" placeholder="Caption" v-model="this.cap" />
+      <div class="margin"></div>
+      <input type="text" placeholder="Reference" v-model="this.ref" />
+      <div class="margin"></div>
       <div>
         <button @click="Create">Add</button>
         <div class="margin"></div>
@@ -30,6 +34,8 @@ export default {
     return {
       url: "",
       alt: "",
+      cap: "",
+      ref: "",
       create_in_title: this.$props.paragraph_title,
     };
   },
@@ -50,6 +56,8 @@ export default {
             order_in_paragraph: this.$props.picturessize,
             url: this.url,
             alt: this.alt,
+            caption: this.cap,
+            reference: this.ref,
             paragraph_id: this.$props.paragraph_id,
           });
 

@@ -107,13 +107,30 @@ button:hover {
           align-items: center;
 }
 
+.date-item-holder {
+  display: inline-block;
+  overflow: auto;
+}
+
+.date-item-holder::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
+
 .date-item {
   display: inline-block;
+  overflow: scroll;
+  white-space: nowrap;
   font-size: 0.8rem;
   background-color: #dfe6e9;
   height: 100%;
   padding: 4px 20px 0px 20px;
   border-radius: 10px;
+}
+
+.date-item::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
 }
 
 .date-item:not(:last-child) {

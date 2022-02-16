@@ -1,12 +1,29 @@
 <template>
-  <img
-    class="picture"
-    @click="big = !big"
-    :src="picture.url"
-    :alt="picture.alt"
-  />
-  <div v-if="big" @click="big = !big" class="bigpicture">
-    <img class="img-fluid" :src="picture.url" :alt="picture.alt" />
+  <div class="image-holder">
+    <h2 class="title" :class="{ active_tit: this.big }">{{ picture.alt }}</h2>
+    <img
+      class="picture"
+      :class="{ active_pic: this.big }"
+      @click="this.big = !this.big"
+      :src="picture.url"
+      :alt="picture.alt"
+    />
+    <div class="buttons" :class="{ active_but: this.big }">
+      <a
+        v-if="this.big"
+        :href="picture.url"
+        :class="{ button_full: !picture.reference }"
+      >
+        <img src="../assets/icon/arrows-fullscreen.svg" alt="fullscreen" />
+      </a>
+      <a
+        v-if="picture.reference && this.big"
+        :href="picture.reference"
+        target="_blank"
+      >
+        <img src="../assets/icon/link-45deg.svg" alt="reference" />
+      </a>
+    </div>
   </div>
 </template>
 
@@ -17,35 +34,69 @@ export default {
   data() {
     return {
       big: false,
+      referenceTitle: "",
     };
+  },
+
+  mounted() {
+    if (this.picture.reference) {
+      this.referenceTitle = this.picture.reference.substring(0, 20);
+    }
   },
 };
 </script>
 
 <style scoped>
 .picture {
-  cursor: pointer;
   border-radius: 10px;
   width: 100%;
-  height: 120px;
+  height: 170px;
   object-fit: cover;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
   transition: height 0.4s ease-in-out;
+  cursor: pointer;
 }
 
-@media only screen and (min-width: 600px) {
-  .picture:hover {
-    height: 500px;
-  }
+.active_pic {
+  height: 500px;
+}
+.active_tit {
+  font-size: 1rem !important;
+  margin-bottom: 10px !important;
 }
 
-@media only screen and (max-width: 600px) {
-  .picture {
-    height: 170px;
-  }
+.title {
+  transition: all 0.4s ease-in-out;
+  font-size: 0rem;
+  margin-bottom: -10px;
 }
 
-.img-fluid {
-  padding: 0px 20px;
+.active_but {
+  opacity: 1 !important;
+  height: 50px !important;
+}
+
+.buttons {
+  transition: all 0.4s ease-in-out;
+  height: 0px;
+  opacity: 0;
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.buttons > a {
+  border-radius: 10px;
+  padding: 10px 0px;
+  text-align: center;
+  width: 49%;
+  border: 2px solid #ebebeb;
+}
+
+.button_full {
+  width: 100% !important;
+}
+.buttons > a:hover {
+  background-color: rgb(243, 243, 243);
 }
 </style>
