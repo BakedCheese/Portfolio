@@ -1,6 +1,9 @@
 <template>
   <div class="image-holder">
     <h2 class="title" :class="{ active_tit: this.big }">{{ picture.alt }}</h2>
+    <div class="caption" :class="{ active_cap: this.big }">
+      {{ picture.caption }}
+    </div>
     <img
       class="picture"
       :class="{ active_pic: this.big }"
@@ -61,7 +64,7 @@ export default {
   height: 500px;
 }
 .active_tit {
-  font-size: 1rem !important;
+  font-size: 1.4rem !important;
   margin-bottom: 10px !important;
 }
 
@@ -74,29 +77,44 @@ export default {
 .active_but {
   opacity: 1 !important;
   height: 50px !important;
+  margin: -60px auto 35px auto !important;
 }
 
 .buttons {
   transition: all 0.4s ease-in-out;
   height: 0px;
   opacity: 0;
-  margin-top: 10px;
-  width: 100%;
+  width: 94%;
   display: flex;
+  margin: 0px;
   justify-content: space-between;
-}
-.buttons > a {
-  border-radius: 10px;
-  padding: 10px 0px;
-  text-align: center;
-  width: 49%;
-  border: 2px solid #ebebeb;
+  flex-direction: row-reverse;
 }
 
-.button_full {
-  width: 100% !important;
+.buttons > a {
+  border-radius: 10px;
+  padding: 10px 0px 13px 0px;
+  text-align: center;
+  width: 50px;
+  background-color: white;
+
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+}
+
+.buttons_full {
+  justify-content: start !important;
 }
 .buttons > a:hover {
   background-color: rgb(243, 243, 243);
+}
+
+.caption {
+  transition: all 0.1s ease-in-out;
+  font-size: 0rem;
+}
+
+.active_cap {
+  font-size: 0.9rem;
+  margin-bottom: 13px;
 }
 </style>
