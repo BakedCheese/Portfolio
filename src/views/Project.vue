@@ -40,7 +40,8 @@
           </h2>
           <LayoutContent v-if="!para.links" :paragraph="para" />
           <p v-else class="b-text link">
-            {{ para.heading }} - <a :href="para.content">{{ para.content }}</a>
+            {{ para.heading }} -
+            <a :href="para.content">{{ para.content }}</a>
           </p>
           <div v-if="!para.links" class="margin"></div>
         </div>
@@ -124,8 +125,13 @@ export default {
 <style scoped>
 .link {
   font-weight: bold;
-  padding: 8px 0px 8px 15px;
+  padding: 8px 8px 8px 15px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px;
   border-radius: 10px;
+}
+
+.link a {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="block-content">
     <div class="margin"></div>
-    <div v-if="paragraph.content.length > 0" class="wblock">
+    <div v-if="paragraph.content.length > 0">
       <div class="margin"></div>
       <p v-if="!paragraph.links" class="g-text content_of_para">
         {{ paragraph.content }}
