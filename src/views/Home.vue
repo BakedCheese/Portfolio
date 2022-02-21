@@ -18,9 +18,15 @@
           <h4 class="b-text fw-bold spacing">Latest Collections</h4>
         </div>
         <div class="some-collections" v-if="collections.length > 0">
-          <ClickablePictureCollection :collection_id="collections[0].id" />
+          <ClickablePictureCollection
+            v-if="collections[0]"
+            :collection_id="collections[0].id"
+          />
           <div class="margin"></div>
-          <ClickablePictureCollection :collection_id="collections[1].id" />
+          <ClickablePictureCollection
+            v-if="collections[1]"
+            :collection_id="collections[1].id"
+          />
         </div>
         <div class="right-side">
           <div class="button button-under-object" @click="AllCollection">
@@ -67,9 +73,13 @@ export default {
     async load() {
       try {
         const response = await axios.get(
-          `https://bakedcheese.nl/webserver/collections`
+          `https://bakedcheese.nl/webserver/collectionsU`
         );
-        this.collections = response.data;
+        response.data.forEach((collection) => {
+          if (collection.has_picture) {
+            this.collections.push(collection);
+          }
+        });
       } catch (err) {
         console.log(err.message);
       }

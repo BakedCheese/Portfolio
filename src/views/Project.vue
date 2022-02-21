@@ -12,17 +12,20 @@
         <h2 class="b-text fw-bolder spacing">Project: {{ this.title }}</h2>
         <p class="g-text">{{ this.discription }}</p>
         <div class="margin"></div>
-        <h5>Index</h5>
-        <div id="list-example" class="list-group">
-          <a
-            v-for="(para, index) in paragraphsId"
-            :key="para.id"
-            class="list-group-item list-group-item-action"
-            :href="para"
-            >{{ this.paragraphsIdTitle[index].heading }}
-          </a>
+        <div v-if="this.paragraphsId.length > 0">
+          <h5>Index</h5>
+          <div id="list-example" class="list-group">
+            <a
+              v-for="(para, index) in paragraphsId"
+              :key="para.id"
+              class="list-group-item list-group-item-action"
+              :href="para"
+              >{{ this.paragraphsIdTitle[index].heading }}
+            </a>
+          </div>
+          <div class="margin"></div>
         </div>
-        <div class="margin"></div>
+
         <div
           v-for="para in paragraphs"
           :key="para.id"
@@ -95,7 +98,7 @@ export default {
           for (let index = 0; index < response.data.length; index++) {
             if (response.data[index].project_id == this.$route.params.id) {
               this.paragraphs.push(response.data[index]);
-              if (!response.data[index].links) {
+              if (!response.data[index].links && response.data[index].heading) {
                 this.paragraphsId.push("#" + response.data[index].id);
                 this.paragraphsIdTitle.push(response.data[index]);
               }

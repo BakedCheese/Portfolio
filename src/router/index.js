@@ -8,6 +8,7 @@ import Home from "../views/Home.vue";
 import AllCollections from "../views/AllCollections.vue";
 import Login from "../views/Admin/Login.vue";
 import Homepage from "../views/Admin/Homepage.vue";
+import Contact from "../views/Contact.vue";
 
 //---------------------------------------------------------------------
 //Create
@@ -124,6 +125,11 @@ const routes = [
     path: "/aboutme",
     name: "AboutMe",
     component: Aboutme,
+  },
+  {
+    path: "/aboutme/contact",
+    name: "Contact",
+    component: Contact,
   },
 ];
 

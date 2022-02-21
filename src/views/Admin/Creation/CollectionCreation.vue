@@ -81,6 +81,8 @@ export default {
           await axios.post(`https://bakedcheese.nl/webserver/collections`, {
             title: this.text[0],
             discription: this.text[1],
+            has_picture: false,
+            updated: new Date().toISOString().slice(0, 19).replace("T", " "),
           });
 
           //check if content has been entered

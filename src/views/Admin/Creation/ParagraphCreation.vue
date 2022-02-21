@@ -14,17 +14,25 @@
 
       <div class="margin"></div>
       <input
+        v-if="!this.links"
         type="text"
         placeholder="Heading of paragraph"
         v-model="this.heading"
       />
+      <input
+        v-else
+        type="text"
+        placeholder="Heading of URL"
+        v-model="this.heading"
+      />
       <div class="margin"></div>
       <textarea
+        v-if="!this.links"
         class="contents"
         placeholder="Content of the paragraph"
         v-model="this.content"
       />
-
+      <input v-else type="text" placeholder="URL" v-model="this.content" />
       <div class="margin"></div>
       <div>
         <button @click="Create">Add</button>

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="this.url.length == 0" class="load-holder">
+  <div v-if="!this.has_picture" class="load-holder">
     <div class="spinner-border" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
@@ -22,6 +22,7 @@ export default {
     return {
       alt: "",
       url: "",
+      has_picture: false,
     };
   },
 
@@ -38,7 +39,6 @@ export default {
     },
 
     async load() {
-      let project_id;
       let paragraph_id;
 
       try {
@@ -46,50 +46,54 @@ export default {
           `https://bakedcheese.nl/webserver/projects`
         );
 
-        for (let index = 0; index < response.data.length; index++) {
-          if (response.data[index].collection_id == this.$props.collection_id) {
-            project_id = response.data[index].id;
-            break;
-          }
-        }
-
-        if (project_id == null) {
-          return;
-        }
-
-        try {
-          const response = await axios.get(
-            `https://bakedcheese.nl/webserver/paragraphs`
-          );
-
-          for (let index = 0; index < response.data.length; index++) {
-            if (response.data[index].project_id == project_id) {
-              if (response.data[index].has_picture == 1) {
-                paragraph_id = response.data[index].id;
-                break;
-              }
-            }
-          }
-          try {
-            const response = await axios.get(
-              `https://bakedcheese.nl/webserver/pictures`
+        //project
+        for (let j = 0; j < response.data.length; j++) {
+          if (response.data[j].collection_id == this.$props.collection_id) {
+            const responsePar = await axios.get(
+              `https://bakedcheese.nl/webserver/paragraphs`
             );
-
-            for (let index = 0; index < response.data.length; index++) {
-              if (response.data[index].paragraph_id == paragraph_id) {
-                this.alt = response.data[index].alt;
-                this.url = response.data[index].url;
-                break;
+            //paragraph
+            for (let index = 0; index < responsePar.data.length; index++) {
+              if (responsePar.data[index].project_id == response.data[j].id) {
+                if (responsePar.data[index].has_picture == 1) {
+                  paragraph_id = responsePar.data[index].id;
+                  break;
+                }
               }
             }
-          } catch (err) {
-            console.log(err.message);
+            //picture
+            if (paragraph_id != null) {
+              const responsePic = await axios.get(
+                `https://bakedcheese.nl/webserver/pictures`
+              );
+
+              for (let index = 0; index < responsePic.data.length; index++) {
+                if (responsePic.data[index].paragraph_id == paragraph_id) {
+                  this.alt = responsePic.data[index].alt;
+                  this.url = responsePic.data[index].url;
+
+                  this.has_picture = true;
+                  return;
+                }
+              }
+            }
           }
-        } catch (err) {
-          console.log(err.message);
         }
       } catch (err) {
         console.log(err.message);
+      }
+
+      if (!this.has_picture) {
+        try {
+          await axios.put(
+            `https://bakedcheese.nl/webserver/collections/${this.$props.collection_id}`,
+            {
+              has_picture: false,
+            }
+          );
+        } catch (err) {
+          console.log(err.message);
+        }
       }
     },
   },

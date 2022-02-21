@@ -25,9 +25,16 @@
       :class="{ 'item-active': this.showProjects }"
       @click="this.showProjects = !this.showProjects"
     >
-      <div class="id-item">{{ paragraph.order_in_project + 1 }}</div>
+      <div class="id-item">
+        {{ paragraph.order_in_project + 1 }}
+      </div>
 
-      <div class="content-item">{{ paragraph.heading }}</div>
+      <div v-if="paragraph.heading" class="content-item">
+        {{ paragraph.heading }}
+      </div>
+      <div v-else class="content-item">
+        <i><small>Placeholder</small> </i>
+      </div>
       <img
         v-if="this.paragraph.links && !this.showProjects"
         src="../../assets/icon/link-45deg.svg"
@@ -36,17 +43,24 @@
     </div>
 
     <div v-if="this.showProjects" class="item-in-item">
-      <div class="content">
+      <div v-if="!this.paragraph.links" class="content">
         {{ this.paragraph.content }}
       </div>
-      <div class="margin"></div>
-      <div class="item-list-heading">
-        <div>Pictures within:</div>
-        <button @click="createPicture">Create new picture</button>
+      <div v-else class="content">
+        <a :href="this.paragraph.content" target="_blank">{{
+          this.paragraph.content
+        }}</a>
       </div>
-      <div class="line"></div>
-      <div v-for="picture in this.pictures" :key="picture.id">
-        <PictureItem :picture="picture" />
+      <div v-if="!this.paragraph.links">
+        <div class="margin"></div>
+        <div class="item-list-heading">
+          <div>Pictures within:</div>
+          <button @click="createPicture">Create new picture</button>
+        </div>
+        <div class="line"></div>
+        <div v-for="picture in this.pictures" :key="picture.id">
+          <PictureItem :picture="picture" />
+        </div>
       </div>
     </div>
   </div>

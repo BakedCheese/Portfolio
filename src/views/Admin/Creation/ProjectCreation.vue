@@ -73,6 +73,13 @@ export default {
             collection_id: this.$props.collection_id,
           });
 
+          await axios.put(
+            `https://bakedcheese.nl/webserver/collections/${this.$props.collection_id}`,
+            {
+              updated: new Date().toISOString().slice(0, 19).replace("T", " "),
+            }
+          );
+
           this.$router.push({ name: "Homepage" });
         } else {
           console.log("Can't add, because there is no content!");

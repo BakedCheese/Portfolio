@@ -1,10 +1,5 @@
 <template>
-  <div v-if="this.url.length == 0" class="load-holder">
-    <div class="spinner-border" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
-  </div>
-  <div v-else>
+  <div v-if="this.url.length > 0">
     <div class="button" @click="gotoProject">
       <img class="picture" :src="this.url" :alt="this.alt" />
       <div class="content ps-3">

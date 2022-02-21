@@ -54,7 +54,7 @@
           />
           <img v-else src="../../assets/icon/circle.svg" alt="see" />
         </div>
-        Custom query
+        Collections
       </div>
       <button v-if="this.collectionsSee" @click="createCollection">
         <div class="title">Create new collection</div>
