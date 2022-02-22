@@ -35,26 +35,266 @@
           <img src="../assets/Images/Me.jpg" alt="" />
         </div>
         <div class="margin"></div>
-        <div class="disabilities">
-          <h3>Disabilities</h3>
-          <p>
-            With what I said earlier that I am an introverted, mood-sensitive,
-            dyslexic, black and white thinker. By this I did not mean to say
-            that I am broken/defective. What I mean to say is that those things
-            are the things that made me, me.
-          </p>
-          <p>
-            And I’m happy that I got those “disabilities”, for example being
-            dyslexic has its cons, like not being able to read/write words
-            properly, but it also has its pros, like thinking more visually and
-            getting more time on tests xD.
-          </p>
-          <p>
-            <small
-              >Side note - Although I’m saying that I think black and white. It
-              has blend more to gray over the years.</small
-            >
-          </p>
+        <div class="accomplishments">
+          <h3>My Expertise</h3>
+          <small>Programs</small>
+          <div class="accomplishments-content">
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/unity.svg" alt="" />
+                <a href="https://unity.com/" target="_blank">Unity</a>
+              </div>
+              <div>
+                <div class="known"></div>
+                <div class="known-more"></div>
+                <div class="known-more-more"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/Unreal.png" alt="" />
+                <a href="https://www.unrealengine.com/" target="_blank"
+                  >Unreal Engine</a
+                >
+              </div>
+
+              <div>
+                <div class="known"></div>
+                <div class="known-more"></div>
+                <div class="no-known"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/Blender.svg" alt="" />
+                <a href="https://www.blender.org/" target="_blank">Blender</a>
+              </div>
+              <div>
+                <div class="known"></div>
+                <div class="known-more"></div>
+                <div class="known-more-more"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/vsc.svg" alt="" />
+                <a href="https://code.visualstudio.com/" target="_blank"
+                  >Visual studio code</a
+                >
+              </div>
+              <div>
+                <div class="known"></div>
+                <div class="known-more"></div>
+                <div class="known-more-more"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/ph.svg" alt="" />
+                <a
+                  href="https://www.adobe.com/nl/products/photoshop.html"
+                  target="_blank"
+                  >Adobe - Photoshop</a
+                >
+              </div>
+              <div>
+                <div class="known"></div>
+                <div class="known-more"></div>
+                <div class="no-known"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/xd.svg" alt="" />
+                <a
+                  href="https://www.adobe.com/nl/products/xd.html"
+                  target="_blank"
+                  >Adobe - Experience Design</a
+                >
+              </div>
+              <div>
+                <div class="known"></div>
+                <div class="no-known"></div>
+                <div class="no-known"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/github.svg" alt="" />
+                <a href="https://github.com/" target="_blank">Github</a>
+              </div>
+              <div>
+                <div class="known"></div>
+                <div class="known-more"></div>
+                <div class="no-known"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+          </div>
+          <small>Programming</small>
+          <div class="accomplishments-content">
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/diagram-3.svg" alt="" />
+                <a
+                  href="https://refactoring.guru/design-patterns/java"
+                  target="_blank"
+                  >Design patterns (Coding)</a
+                >
+              </div>
+              <div>
+                <div class="known"></div>
+                <div class="known-more"></div>
+                <div class="no-known"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/java.svg" alt="" />
+                <a href="https://www.java.com/nl/" target="_blank">Java</a>
+              </div>
+              <div>
+                <div class="known"></div>
+                <div class="known-more"></div>
+                <div class="known-more-more"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/JavaScript.svg" alt="" />
+                <a
+                  href="https://nl.wikipedia.org/wiki/JavaScript"
+                  target="_blank"
+                  >Javascript</a
+                >
+              </div>
+
+              <div>
+                <div class="known"></div>
+                <div class="known-more"></div>
+                <div class="no-known"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/cpp.svg" alt="" />
+                <a href="https://nl.wikipedia.org/wiki/C%2B%2B" target="_blank"
+                  >C++</a
+                >
+              </div>
+              <div>
+                <div class="known"></div>
+                <div class="known-more"></div>
+                <div class="no-known"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/cs.svg" alt="" />
+                <a
+                  href="https://nl.wikipedia.org/wiki/C%E2%99%AF"
+                  target="_blank"
+                  >C#</a
+                >
+              </div>
+              <div>
+                <div class="known"></div>
+                <div class="known-more"></div>
+                <div class="known-more-more"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/sql.svg" alt="" />
+                <a href="https://nl.wikipedia.org/wiki/SQL" target="_blank"
+                  >SQL</a
+                >
+              </div>
+              <div>
+                <div class="known"></div>
+                <div class="known-more"></div>
+                <div class="no-known"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/vuejs.svg" alt="" />
+                <a href="https://vuejs.org/" target="_blank"
+                  >Vue.js (Framework)</a
+                >
+              </div>
+              <div>
+                <div class="known"></div>
+                <div class="known-more"></div>
+                <div class="known-more-more"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/nodejs.svg" alt="" />
+                <a href="https://nodejs.org/" target="_blank">Node.js</a>
+              </div>
+              <div>
+                <div class="known"></div>
+                <div class="no-known"></div>
+                <div class="no-known"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+          </div>
+          <small>Language</small>
+          <div class="accomplishments-content">
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/nl.png" alt="" />
+                Netherlands
+              </div>
+              <div>
+                <div class="known"></div>
+                <div class="known-more"></div>
+                <div class="known-more-more"></div>
+                <div class="known-more-more-more"></div>
+              </div>
+            </div>
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/en.png" alt="" />
+                English
+              </div>
+
+              <div>
+                <div class="known"></div>
+                <div class="known-more"></div>
+                <div class="known-more-more"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+            <div class="content-item">
+              <div>
+                <img src="../assets/icon/brands/jp.png" alt="" />
+                Japanese
+              </div>
+              <div>
+                <div class="no-known"></div>
+                <div class="no-known"></div>
+                <div class="no-known"></div>
+                <div class="no-known"></div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="margin"></div>
         <div class="history">
@@ -153,8 +393,6 @@
             </div>
           </div>
         </div>
-        <div class="margin"></div>
-        <h4 class="b-text fw-bold spacing">More content is coming.</h4>
       </div>
     </div>
   </div>
@@ -190,7 +428,7 @@ export default {
 .history-content {
 }
 
-.content-item {
+.history-content .content-item {
   display: flex;
   justify-content: space-between;
   padding: 7px 0px;
@@ -200,16 +438,16 @@ export default {
 }
 
 @media screen and (max-width: 601px) {
-  .content-item {
+  .history-content .content-item {
     font-size: 0.7rem;
   }
 }
 
-.content-item:not(:last-child) {
+.history-content .content-item:not(:last-child) {
   border-bottom: 1px solid black;
 }
 
-.content-item img {
+.history-content .content-item img {
   margin-right: 10px;
 }
 
@@ -221,7 +459,7 @@ a {
   display: inline;
   color: black;
   cursor: pointer;
-  border-bottom: 0px solid black;
+  border-bottom: 1px solid white;
   transition: border-bottom 0.05s ease-in-out;
   text-decoration: none;
 }
@@ -235,5 +473,68 @@ a:hover {
   width: 100%;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+}
+
+.accomplishments {
+}
+
+.accomplishments-content {
+  margin: 2px 0px 10px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.accomplishments small {
+  font-style: italic;
+}
+
+.accomplishments-content .content-item {
+  border-radius: 0px;
+  padding: 5px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.accomplishments-content .content-item:not(:last-child) {
+  border-bottom: 1px solid black;
+}
+
+.accomplishments-content .content-item img {
+  width: 18px;
+  height: 18px;
+  margin-right: 12px;
+}
+
+.accomplishments-content .content-item div {
+  display: flex;
+  align-items: center;
+}
+
+.accomplishments-content .content-item div div {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+}
+
+.accomplishments-content .content-item div div:not(:last-child) {
+  margin-right: 5px;
+}
+
+.known {
+  background-color: #1dd1a1;
+}
+.known-more {
+  background-color: #54a0ff;
+}
+.known-more-more {
+  background-color: #5f27cd;
+}
+.known-more-more-more {
+  background-color: #feca57;
+}
+.no-known {
+  border: 2px solid rgb(153, 153, 153);
 }
 </style>
