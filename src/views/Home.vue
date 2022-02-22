@@ -3,10 +3,16 @@
     <div class="block">
       <div class="inner-block">
         <h2 class="b-text fw-bolder">Hello . Osu . Morge</h2>
+        <p>
+          I’m Bakedcheese, aka Tim van Daalen. Somebody that likes to be
+          creative by making my own worlds and stories, with help from my good
+          old friend technology. In addition, I like to space out and listen to
+          the beats, well-being in my own world racing against vampire-dolphins
+          in space…
+        </p>
         <p class="g-text">
-          My name is Tim van Daalen, I'm a Dutch software Engineer student at
-          The Hague University of Applied Sciences. I like playing and making
-          games, exploring the world of the unknown, traveling and being a nerd.
+          In this portfolio, you will find my adventures in the sandbox of game
+          design, web design, animating, ect…
         </p>
         <div class="right-side">
           <div class="button button-under-object" @click="AboutMe">

@@ -1,5 +1,8 @@
 <template>
   <div class="container default">
+    <div class="directions">
+      <small> <a @click="GotoHome">Home </a> > All collections</small>
+    </div>
     <div class="block">
       <div class="inner-block">
         <h4 class="b-text fw-bold spacing">All Collections</h4>
@@ -37,6 +40,11 @@ export default {
   },
 
   methods: {
+    GotoHome() {
+      this.$router.push({
+        name: "Home",
+      });
+    },
     Create() {
       this.$router.push({ name: "CreateCollection" });
     },

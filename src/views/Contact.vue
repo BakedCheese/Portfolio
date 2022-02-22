@@ -1,5 +1,11 @@
 <template>
   <div class="container default">
+    <div class="directions">
+      <small>
+        <a @click="GotoHome">Home </a> > <a @click="GotoAbout">About me </a> >
+        Contact</small
+      >
+    </div>
     <div class="block">
       <div class="inner-block">
         <h2 class="b-text fw-bolder">Contact me</h2>
@@ -29,6 +35,16 @@
 import emailjs from "@emailjs/browser";
 export default {
   methods: {
+    GotoHome() {
+      this.$router.push({
+        name: "Home",
+      });
+    },
+    GotoAbout() {
+      this.$router.push({
+        name: "AboutMe",
+      });
+    },
     sendEmail() {
       emailjs
         .sendForm(
@@ -40,6 +56,7 @@ export default {
         .then(
           (result) => {
             console.log("SUCCESS!", result.text);
+            this.$router.push({ name: "Home" });
           },
           (error) => {
             console.log("FAILED...", error.text);
