@@ -5,10 +5,10 @@
         <h2 class="b-text fw-bolder">Hello . Osu . Morge</h2>
         <p>
           I’m Bakedcheese, aka Tim van Daalen. Somebody that likes to be
-          creative by making my own worlds and stories, with help from my good
-          old friend technology. In addition, I like to space out and listen to
-          the beats, well-being in my own world racing against vampire-dolphins
-          in space…
+          creative by making my own worlds and stories, with the help from my
+          good old friend technology. In addition, I like to space out and
+          listen to the beats, well-being in my own world racing against
+          vampire-dolphins in space…
         </p>
         <p class="g-text">
           In this portfolio, you will find my adventures in the sandbox of game
@@ -21,7 +21,7 @@
         </div>
         <div class="margin"></div>
         <div class="margin">
-          <h4 class="b-text fw-bold spacing">Latest Collections</h4>
+          <h4 class="b-text fw-bold spacing">Latest updated collections</h4>
         </div>
         <div class="some-collections" v-if="collections.length > 0">
           <ClickablePictureCollection

@@ -15,7 +15,7 @@
 export default {
   methods: {
     Contact() {
-      this.$router.push({ name: "Contact" });
+      this.$router.push({ name: "AboutMe" });
     },
   },
 };

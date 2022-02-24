@@ -15,9 +15,9 @@
         <div class="speeddate">
           <h3>Speeddate >>></h3>
           <p>
-            I’m an introverted, mood sensitive, dyslexic, black and white
-            thinker, that likes playing and making games, admires the landscapes
-            of nature, exploring the world of the unknown and being a nerd.
+            I’m an introverted, mood sensitive, dyslexic, male, that likes
+            playing and making games, admires the landscapes of nature,
+            exploring the world of the unknown and being a nerd.
           </p>
           <p>
             I’m not a fan of interactive sports, but I like to ski and the
@@ -385,12 +385,26 @@
               </div>
               <div class="year">2001</div>
             </div>
-            <div class="content-item">
-              <div>
-                <img src="../assets/icon/bookmark.svg" alt="" />Being made
-              </div>
-              <div class="year">2000</div>
-            </div>
+          </div>
+        </div>
+        <div class="margin"></div>
+        <div class="social-media">
+          <div class="icon">
+            <a
+              href="https://www.youtube.com/channel/UChhXIjyFOKo95dQ5RxjaJ-A"
+              target="_blank"
+              ><img src="../assets/icon/yt.svg" alt="youtube"
+            /></a>
+          </div>
+          <div class="icon">
+            <a
+              href="https://steamcommunity.com/id/ikwileenvriend/"
+              target="_blank"
+              ><img src="../assets/icon/steam.svg" alt="steam"
+            /></a>
+          </div>
+          <div class="contact" @click="Contact">
+            <img src="../assets/icon/mail.svg" alt="" /> Contact me
           </div>
         </div>
       </div>
@@ -405,6 +419,9 @@ export default {
       this.$router.push({
         name: "Home",
       });
+    },
+    Contact() {
+      this.$router.push({ name: "Contact" });
     },
   },
 };
@@ -455,7 +472,7 @@ export default {
   font-style: italic;
 }
 
-a {
+.history-content .content-item a {
   display: inline;
   color: black;
   cursor: pointer;
@@ -464,7 +481,7 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+.history-content .content-item a:hover {
   border-bottom: 1px solid black;
 }
 
@@ -488,6 +505,19 @@ a:hover {
 
 .accomplishments small {
   font-style: italic;
+}
+
+.accomplishments-content .content-item a {
+  display: inline;
+  color: black;
+  cursor: pointer;
+  border-bottom: 1px solid white;
+  transition: border-bottom 0.05s ease-in-out;
+  text-decoration: none;
+}
+
+.accomplishments-content .content-item a:hover {
+  border-bottom: 1px solid black;
 }
 
 .accomplishments-content .content-item {
@@ -536,5 +566,39 @@ a:hover {
 }
 .no-known {
   border: 2px solid rgb(153, 153, 153);
+}
+.social-media {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.contact {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  padding: 0px 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.contact img {
+  margin-right: 12px;
+}
+
+.icon {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+  background-color: white;
+  padding: 5px 10px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+a {
+  text-decoration: none;
 }
 </style>

@@ -4,13 +4,21 @@
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>
-  <div v-else>
+  <div class="picture-content" v-else>
     <img
       class="picture"
       :src="this.url"
       :alt="this.alt"
       @click="gotoCollection"
     />
+    <div class="info-picture">
+      <div>
+        <img src="../assets/icon/collection.svg" alt="" />{{ collection.title }}
+      </div>
+      <div>
+        <img src="../assets/icon/arrow-repeat.svg" alt="" />{{ this.updated }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -22,6 +30,8 @@ export default {
     return {
       alt: "",
       url: "",
+      updated: "",
+      collection: null,
       has_picture: false,
     };
   },
@@ -30,7 +40,14 @@ export default {
     this.load();
   },
 
+  mounted() {},
+
   methods: {
+    GetDate() {
+      if (this.collection.updated != null) {
+        this.updated = this.collection.updated.split("T")[0];
+      }
+    },
     gotoCollection() {
       this.$router.push({
         name: "Collection",
@@ -42,6 +59,13 @@ export default {
       let paragraph_id;
 
       try {
+        const responseCollection = await axios.get(
+          `https://bakedcheese.nl/webserver/collections/${this.$props.collection_id}`
+        );
+
+        this.collection = responseCollection.data;
+        this.GetDate();
+
         const response = await axios.get(
           `https://bakedcheese.nl/webserver/projects`
         );
@@ -101,6 +125,39 @@ export default {
 </script>
 
 <style scoped>
+.picture-content {
+  position: relative;
+  text-align: center;
+}
+.info-picture {
+  position: absolute;
+  top: 0px;
+  left: 8px;
+  z-index: 4;
+  display: flex;
+  flex-wrap: wrap;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+.info-picture div {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+  background-color: white;
+  padding: 2px 15px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.info-picture div img {
+  margin-right: 10px;
+}
+
+.info-picture div:not(:last-child) {
+  margin-right: 8px;
+}
 .load-holder {
   width: 100%;
   height: 280px;
@@ -119,7 +176,13 @@ export default {
   border: #f9f9f9 0px solid;
 }
 
-.picture:hover {
+.picture-content:hover .picture {
   border: #f9f9f9 5px solid;
+}
+
+.picture-content:hover .info-picture {
+  opacity: 1;
+  top: 5px;
+  left: 13px;
 }
 </style>
