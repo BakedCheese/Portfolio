@@ -7,6 +7,13 @@
       </div>
     </div>
   </div>
+  <div v-else>
+    <div class="button" @click="gotoProject">
+      <div class="content ps-5">
+        <h3>{{ project.title }}</h3>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -35,34 +42,27 @@ export default {
     },
 
     async load() {
-      let paragraph_id;
-
       try {
-        const response = await axios.get(
+        const responseParagraphs = await axios.get(
           `https://bakedcheese.nl/webserver/paragraphs`
         );
 
-        for (let index = 0; index < response.data.length; index++) {
-          if (response.data[index].project_id == this.project.id) {
-            if (response.data[index].has_picture == 1) {
-              paragraph_id = response.data[index].id;
-              break;
+        for (let j = 0; j < responseParagraphs.data.length; j++) {
+          if (responseParagraphs.data[j].project_id == this.project.id) {
+            const responsePictures = await axios.get(
+              `https://bakedcheese.nl/webserver/pictures`
+            );
+            for (let i = 0; i < responsePictures.data.length; i++) {
+              if (
+                responsePictures.data[i].paragraph_id ==
+                responseParagraphs.data[j].id
+              ) {
+                this.alt = responsePictures.data[i].alt;
+                this.url = responsePictures.data[i].url;
+                return;
+              }
             }
           }
-        }
-        try {
-          const response = await axios.get(
-            `https://bakedcheese.nl/webserver/pictures`
-          );
-          for (let index = 0; index < response.data.length; index++) {
-            if (response.data[index].paragraph_id == paragraph_id) {
-              this.alt = response.data[index].alt;
-              this.url = response.data[index].url;
-              break;
-            }
-          }
-        } catch (err) {
-          console.log(err.message);
         }
       } catch (err) {
         console.log(err.message);

@@ -1,19 +1,15 @@
 <template>
   <div class="block-content">
-    <div class="margin"></div>
     <div v-if="paragraph.content.length > 0">
-      <div class="margin"></div>
-      <p v-if="!paragraph.links" class="g-text content_of_para">
+      <p v-if="!paragraph.links">
         {{ paragraph.content }}
       </p>
       <a v-else :href="paragraph.content" target="_blank">{{
         paragraph.content
       }}</a>
     </div>
-
     <div class="margin"></div>
-
-    <div v-if="this.pictures.length != 0">
+    <div class="pic-mar" v-if="this.pictures.length != 0">
       <div v-for="picture in pictures" :key="picture.id">
         <imageinlayout :picture="picture" />
         <div class="margin"></div>
@@ -74,5 +70,8 @@ button {
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.45rem;
+}
+.pic-mar {
+  margin-top: 30px;
 }
 </style>

@@ -53,7 +53,11 @@ export default {
         const response = await axios.get(
           `https://bakedcheese.nl/webserver/collections`
         );
-        this.collections = response.data;
+        response.data.forEach((collection) => {
+          if (collection.has_picture) {
+            this.collections.push(collection);
+          }
+        });
       } catch (err) {
         console.log(err.message);
       }

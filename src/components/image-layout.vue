@@ -16,6 +16,7 @@
         v-if="this.big"
         :href="picture.url"
         :class="{ button_full: !picture.reference }"
+        target="_blank"
       >
         <img src="../assets/icon/arrows-fullscreen.svg" alt="fullscreen" />
       </a>

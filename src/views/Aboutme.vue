@@ -288,7 +288,7 @@
                 Japanese
               </div>
               <div>
-                <div class="no-known"></div>
+                <div class="known-little"></div>
                 <div class="no-known"></div>
                 <div class="no-known"></div>
                 <div class="no-known"></div>
@@ -555,6 +555,9 @@ export default {
 .known {
   background-color: #1dd1a1;
 }
+.known-little {
+  background-color: #1dd1a185;
+}
 .known-more {
   background-color: #54a0ff;
 }
@@ -568,6 +571,7 @@ export default {
   border: 2px solid rgb(153, 153, 153);
 }
 .social-media {
+  margin-top: 50px;
   width: 100%;
   display: flex;
   justify-content: flex-start;

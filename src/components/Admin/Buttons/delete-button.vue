@@ -22,6 +22,7 @@ export default {
   data() {
     return {
       check: false,
+      thisItem: null,
     };
   },
   methods: {
@@ -30,73 +31,106 @@ export default {
     },
 
     async Delete() {
+      const responseItems = await axios.get(
+        `https://bakedcheese.nl/webserver/${this.$props.item}/${this.$props.id}`
+      );
+
+      this.thisItem = responseItems.data;
+      console.log(this.thisItem);
+
+      await axios.delete(
+        `https://bakedcheese.nl/webserver/${this.$props.item}/${this.$props.id}`
+      );
+
       try {
-        if (this.$props.item == "paragraphs") {
-          const responseDeleted = await axios.get(
-            `https://bakedcheese.nl/webserver/paragraphs/${this.$props.id}`
-          );
+        switch (this.$props.item) {
+          case "paragraphs":
+            {
+              updateOrdersPara(this.thisItem);
 
-          let theDeletedParagraph = responseDeleted.data;
+              const responseProject = await axios.get(
+                `https://bakedcheese.nl/webserver/projects/${this.thisItem.project_id}`
+              );
 
-          await axios.delete(
-            `https://bakedcheese.nl/webserver/${this.$props.item}/${this.$props.id}`
-          );
+              this.HasPictures(responseProject.data.collection_id);
+            }
+            break;
+          case "pictures":
+            {
+              updateOrdersPic(this.thisItem);
 
-          updateOrdersPara(theDeletedParagraph);
+              const responseParagraph = await axios.get(
+                `https://bakedcheese.nl/webserver/paragraphs/${this.thisItem.paragraph_id}`
+              );
+
+              const responseProject = await axios.get(
+                `https://bakedcheese.nl/webserver/projects/${responseParagraph.data.project_id}`
+              );
+
+              this.HasPictures(responseProject.data.collection_id);
+            }
+            break;
+          default:
+            break;
         }
-        if (this.$props.item == "pictures") {
-          let haspicture = false;
-          let Thispicture = null;
+      } catch (err) {
+        console.log(err.message);
+      }
+    },
 
-          const GetAllPictures = await axios.get(
-            `https://bakedcheese.nl/webserver/pictures`
+    async HasPictures(id) {
+      //getting all the projects
+      const responseProjects = await axios.get(
+        `https://bakedcheese.nl/webserver/projects`
+      );
+
+      //going through all the projects
+      for (let j = 0; j < responseProjects.data.length; j++) {
+        //checking in the project list if there is a project with the same id
+        if (responseProjects.data[j].collection_id == id) {
+          //getting all the paragraphs
+          const responseParagraphs = await axios.get(
+            `https://bakedcheese.nl/webserver/paragraphs`
           );
-
-          for (let index = 0; index < GetAllPictures.data.length; index++) {
-            if (GetAllPictures.data[index].id == this.$props.id) {
-              Thispicture = GetAllPictures.data[index];
-              for (let jndex = 0; jndex < GetAllPictures.data.length; jndex++) {
+          //going through all the paragraphs
+          for (let i = 0; i < responseParagraphs.data.length; i++) {
+            //checking in the paragraphs list if there is a paragraph with the same id
+            if (
+              responseParagraphs.data[i].project_id ==
+              responseProjects.data[j].id
+            ) {
+              //getting all the pictures
+              const responsePictures = await axios.get(
+                `https://bakedcheese.nl/webserver/pictures`
+              );
+              //going through all the pictures
+              for (let x = 0; x < responsePictures.data.length; x++) {
+                //checking in the pictures list if there is a pictures with the same id
                 if (
-                  GetAllPictures.data[jndex].paragraph_id ==
-                  Thispicture.paragraph_id
+                  responsePictures.data[x].paragraph_id ==
+                  responseParagraphs.data[i].id
                 ) {
-                  haspicture = true;
-                  break;
+                  //Setting true or false for has_picture
+                  //Return out of the methodes
+
+                  await axios.put(
+                    `https://bakedcheese.nl/webserver/collections/${id}`,
+                    {
+                      has_picture: true,
+                    }
+                  );
+
+                  return;
                 }
               }
             }
           }
-
-          if (!haspicture) {
-            await axios.put(
-              `https://bakedcheese.nl/webserver/paragraphs/${this.picture.paragraph_id}`,
-              {
-                has_picture: 0,
-              }
-            );
-          }
-
-          const responseDeleted = await axios.get(
-            `https://bakedcheese.nl/webserver/pictures/${this.$props.id}`
-          );
-
-          let theDeletedPicture = responseDeleted.data;
-
-          await axios.delete(
-            `https://bakedcheese.nl/webserver/${this.$props.item}/${this.$props.id}`
-          );
-
-          updateOrdersPic(theDeletedPicture);
-        } else {
-          await axios.delete(
-            `https://bakedcheese.nl/webserver/${this.$props.item}/${this.$props.id}`
-          );
         }
-
-        this.$router.go();
-      } catch (err) {
-        console.log(err.message);
       }
+
+      await axios.put(`https://bakedcheese.nl/webserver/collections/${id}`, {
+        has_picture: false,
+      });
     },
   },
 };

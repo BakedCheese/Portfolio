@@ -1,9 +1,10 @@
 <template>
-  <div v-if="!this.has_picture" class="load-holder">
+  <div v-if="!this.url" class="load-holder">
     <div class="spinner-border" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>
+
   <div class="picture-content" v-else>
     <img
       class="picture"
@@ -13,7 +14,9 @@
     />
     <div class="info-picture">
       <div>
-        <img src="../assets/icon/collection.svg" alt="" />{{ collection.title }}
+        <img src="../assets/icon/collection.svg" alt="" />{{
+          this.collection.title
+        }}
       </div>
       <div>
         <img src="../assets/icon/arrow-repeat.svg" alt="" />{{ this.updated }}
@@ -32,7 +35,6 @@ export default {
       url: "",
       updated: "",
       collection: null,
-      has_picture: false,
     };
   },
 
@@ -56,8 +58,6 @@ export default {
     },
 
     async load() {
-      let paragraph_id;
-
       try {
         const responseCollection = await axios.get(
           `https://bakedcheese.nl/webserver/collections/${this.$props.collection_id}`
@@ -66,58 +66,53 @@ export default {
         this.collection = responseCollection.data;
         this.GetDate();
 
-        const response = await axios.get(
+        //getting all the projects
+        const responseProjects = await axios.get(
           `https://bakedcheese.nl/webserver/projects`
         );
 
-        //project
-        for (let j = 0; j < response.data.length; j++) {
-          if (response.data[j].collection_id == this.$props.collection_id) {
-            const responsePar = await axios.get(
+        //going through all the projects
+        for (let j = 0; j < responseProjects.data.length; j++) {
+          //checking in the project list if there is a project with the same id
+          if (
+            responseProjects.data[j].collection_id == this.$props.collection_id
+          ) {
+            //getting all the paragraphs
+            const responseParagraphs = await axios.get(
               `https://bakedcheese.nl/webserver/paragraphs`
             );
-            //paragraph
-            for (let index = 0; index < responsePar.data.length; index++) {
-              if (responsePar.data[index].project_id == response.data[j].id) {
-                if (responsePar.data[index].has_picture == 1) {
-                  paragraph_id = responsePar.data[index].id;
-                  break;
+            //going through all the paragraphs
+            for (let i = 0; i < responseParagraphs.data.length; i++) {
+              //checking in the paragraphs list if there is a paragraph with the same id
+              if (
+                responseParagraphs.data[i].project_id ==
+                responseProjects.data[j].id
+              ) {
+                //getting all the pictures
+                const responsePictures = await axios.get(
+                  `https://bakedcheese.nl/webserver/pictures`
+                );
+                //going through all the pictures
+                for (let x = 0; x < responsePictures.data.length; x++) {
+                  //checking in the pictures list if there is a pictures with the same id
+                  if (
+                    responsePictures.data[x].paragraph_id ==
+                    responseParagraphs.data[i].id
+                  ) {
+                    //Getting the alt and utl from picture
+                    this.alt = responsePictures.data[x].alt;
+                    this.url = responsePictures.data[x].url;
+                    //Return out of the for-loop
+                    return;
+                  }
                 }
               }
             }
             //picture
-            if (paragraph_id != null) {
-              const responsePic = await axios.get(
-                `https://bakedcheese.nl/webserver/pictures`
-              );
-
-              for (let index = 0; index < responsePic.data.length; index++) {
-                if (responsePic.data[index].paragraph_id == paragraph_id) {
-                  this.alt = responsePic.data[index].alt;
-                  this.url = responsePic.data[index].url;
-
-                  this.has_picture = true;
-                  return;
-                }
-              }
-            }
           }
         }
       } catch (err) {
         console.log(err.message);
-      }
-
-      if (!this.has_picture) {
-        try {
-          await axios.put(
-            `https://bakedcheese.nl/webserver/collections/${this.$props.collection_id}`,
-            {
-              has_picture: false,
-            }
-          );
-        } catch (err) {
-          console.log(err.message);
-        }
       }
     },
   },

@@ -72,7 +72,6 @@ export default {
           heading: this.heading,
           content: this.content,
           project_id: this.$props.project_id,
-          has_picture: 0,
           links: this.links,
         });
 

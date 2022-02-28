@@ -31,6 +31,14 @@
       <div class="content">
         {{ this.data.discription }}
       </div>
+      <div class="has_picture">
+        <small>Has picture</small>
+        <input
+          type="checkbox"
+          @change="changePicture"
+          v-bind:checked="this.has_picture"
+        />
+      </div>
       <div class="margin"></div>
       <div class="item-list-heading">
         <div>Projects within:</div>
@@ -57,6 +65,7 @@ export default {
   data() {
     return {
       projects: [],
+      has_picture: true,
       showProjects: false,
       date: "",
       updated: "",
@@ -69,6 +78,15 @@ export default {
   },
 
   methods: {
+    async changePicture() {
+      this.has_picture = !this.has_picture;
+      await axios.put(
+        `https://bakedcheese.nl/webserver/collections/${this.$props.data.id}`,
+        {
+          has_picture: this.has_picture,
+        }
+      );
+    },
     createProject() {
       this.$router.push({
         name: "CreateProject",
@@ -86,6 +104,8 @@ export default {
     },
     async Load() {
       try {
+        this.has_picture = this.$props.data.has_picture;
+        console.log(this.has_picture);
         const response = await axios.get(
           `https://bakedcheese.nl/webserver/projects`
         );
@@ -105,4 +125,14 @@ export default {
 
 <style scoped>
 @import "../../assets/css/admin.css";
+.has_picture {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 5px;
+}
+.has_picture small {
+  margin-right: 5px;
+  padding-bottom: 3px;
+}
 </style>

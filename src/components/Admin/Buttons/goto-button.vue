@@ -11,10 +11,11 @@ export default {
   props: ["name", "params"],
   methods: {
     GoToPage() {
-      this.$router.push({
+      let routeData = this.$router.resolve({
         name: this.$props.name,
         params: { id: this.$props.params },
       });
+      window.open(routeData.href, "_blank");
     },
   },
 };
