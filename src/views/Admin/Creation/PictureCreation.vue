@@ -70,13 +70,6 @@ export default {
             paragraph_id: this.$props.paragraph_id,
           });
 
-          await axios.put(
-            `https://bakedcheese.nl/webserver/paragraphs/${this.$props.paragraph_id}`,
-            {
-              has_picture: 1,
-            }
-          );
-
           const resPar = await axios.get(
             `https://bakedcheese.nl/webserver/paragraphs/${this.$props.paragraph_id}`
           );
