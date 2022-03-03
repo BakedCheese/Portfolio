@@ -4,7 +4,7 @@ button {
   border-radius: 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
           box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
-  background-color: #dfe6e9;
+  background-color: white;
   font-weight: bold;
   -webkit-transition: -webkit-box-shadow 0.1s ease-in-out;
   transition: -webkit-box-shadow 0.1s ease-in-out;
@@ -48,7 +48,7 @@ button:hover {
 }
 
 .line {
-  background-color: #dfe6e9;
+  background-color: #2d34360e;
   height: 5px;
 }
 
@@ -66,18 +66,22 @@ button:hover {
   padding: 3px 0px;
   font-size: 1.4rem;
   /*border: #f9f9f9 3px solid;*/
-  background-color: #dfe6e9;
+  background-color: #2d34360e;
   border-radius: 10px;
   padding-left: 30px;
   padding-right: 30px;
-  -webkit-transition: background 0.1s ease-in-out;
-  transition: background 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
   cursor: pointer;
+  color: black;
 }
 
 .item:hover {
   /*border: #333 3px solid;*/
-  background-color: #55efc4;
+  background-color: #2d3436;
+  color: white;
 }
 
 .items {
@@ -95,13 +99,12 @@ button:hover {
 }
 
 .items > div {
-  height: 30px;
+  margin-bottom: -10px;
+  margin-left: -10px;
+  height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -110,6 +113,10 @@ button:hover {
 .date-item-holder {
   display: inline-block;
   overflow: auto;
+  border-radius: 10px;
+  padding-left: 10px;
+  margin-right: 10px;
+  padding-right: 10px;
 }
 
 .date-item-holder::-webkit-scrollbar {
@@ -119,11 +126,11 @@ button:hover {
 
 .date-item {
   display: inline-block;
-  overflow: scroll;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
   white-space: nowrap;
   font-size: 0.8rem;
-  background-color: #dfe6e9;
-  height: 100%;
+  height: 30px;
   padding: 4px 20px 0px 20px;
   border-radius: 10px;
 }
@@ -163,7 +170,7 @@ button:hover {
   cursor: pointer;
   padding: 8px;
   border-radius: 10px;
-  background-color: #dfe6e9;
+  background-color: white;
   -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
           box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
   -webkit-transition: -webkit-box-shadow 0.1s ease-in-out;
@@ -178,16 +185,17 @@ button:hover {
 }
 
 .item-in-item {
-  margin-left: 40px;
+  margin-left: 5%;
 }
 
 .item-active {
-  background-color: #55efc4;
+  background-color: #2d3436;
   border-radius: 10px 10px 0px 10px;
+  color: white;
 }
 
 .item-active-img {
-  background-color: #55efc4;
+  background-color: #2d3436;
 }
 
 .img-item {
@@ -201,9 +209,13 @@ button:hover {
 
 .content {
   margin-top: -0px;
-  background-color: #dfe6e9;
-  padding: 10px 20px;
+  background-color: white;
+  padding: 15px 4% 20px 4%;
   border-radius: 0px 0px 10px 10px;
+  border: 2px #2d3436 solid;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+  border-top: none;
 }
 
 .form {
@@ -214,7 +226,7 @@ button:hover {
 .form input {
   width: 100%;
   border-radius: 10px;
-  border: 3px solid #dfe6e9;
+  border: 3px solid #2d34360e;
   padding: 20px;
 }
 
@@ -223,7 +235,7 @@ button:hover {
 }
 
 .contents {
-  border: 3px solid #dfe6e9;
+  border: 3px solid #2d34360e;
   width: 100%;
   border-radius: 10px;
   padding: 20px;
@@ -234,7 +246,7 @@ button:hover {
   min-height: 100px;
   max-height: 100px;
   overflow-y: auto;
-  border: 3px solid #dfe6e9;
+  border: 3px solid #2d34360e;
   width: 100%;
   border-radius: 10px;
   padding: 20px;
@@ -242,7 +254,7 @@ button:hover {
 
 /* discription text area */
 .discription {
-  border: 3px solid #dfe6e9;
+  border: 3px solid #2d34360e;
   width: 100%;
   border-radius: 10px;
   padding: 20px;
@@ -265,7 +277,7 @@ button:hover {
 select {
   padding: 10px;
   border-radius: 10px;
-  border: 3px solid #dfe6e9;
+  border: 3px solid #2d34360e;
 }
 
 .query {
@@ -289,7 +301,7 @@ select {
   margin-left: 22px;
   width: 150px;
   height: 70px;
-  background-color: #dfe6e9;
+  background-color: white;
   -webkit-transition: -webkit-box-shadow 0.1s ease-in-out;
   transition: -webkit-box-shadow 0.1s ease-in-out;
   transition: box-shadow 0.1s ease-in-out;
@@ -313,7 +325,7 @@ select {
   /*Firefox*/
   padding: 10px;
   border-radius: 10px;
-  border: 3px solid #dfe6e9;
+  border: 3px #2d34360e solid;
 }
 
 .heading-with-button {
@@ -354,7 +366,7 @@ select {
   padding: 3px 0px;
   font-size: 1.4rem;
   /*border: #f9f9f9 3px solid;*/
-  background-color: #dfe6e9;
+  background-color: #2d34360e;
   border-radius: 10px;
   margin-right: 3px;
   padding-left: 30px;

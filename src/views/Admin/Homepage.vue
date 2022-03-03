@@ -1,5 +1,5 @@
 <template>
-  <div class="container admin" style="max-width: 900px">
+  <div class="container admin" style="max-width: 1100px">
     <h1>Welcome to admin control</h1>
     <div class="margin"></div>
     <div class="item-list-heading">

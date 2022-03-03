@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="max-width: 700px">
+  <div class="container" style="max-width: 1100px">
     <div class="form">
       <h2>Edit paragraph: {{ this.heading }}</h2>
       <div class="line"></div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="max-width: 700px">
+  <div class="container" style="max-width: 1100px">
     <div class="form">
       <h2>Add a new picture to the paragraph: {{ this.create_in_title }}</h2>
       <div class="line"></div>
