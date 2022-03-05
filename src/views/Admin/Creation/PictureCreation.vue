@@ -29,13 +29,14 @@
 <script>
 import axios from "axios";
 export default {
-  props: ["paragraph_id", "paragraph_title", "picturessize"],
+  props: ["paragraph_id", "paragraph_title"],
   data() {
     return {
       url: "",
       alt: "",
       cap: "",
       ref: "",
+      size: 0,
       create_in_title: this.$props.paragraph_title,
     };
   },
@@ -44,6 +45,11 @@ export default {
       this.$router.push({ name: "Login" });
     }
   },
+
+  mounted() {
+    this.GetPictureSize();
+  },
+
   methods: {
     Canel() {
       this.$router.push({ name: "Homepage" });
@@ -58,11 +64,31 @@ export default {
       this.CreatePicture();
     },
 
+    async GetPictureSize() {
+      try {
+        this.size = 0;
+
+        const response = await axios.get(
+          `https://bakedcheese.nl/webserver/pictures`
+        );
+
+        for (let index = 0; index < response.data.length; index++) {
+          if (response.data[index].paragraph_id == this.$props.paragraph_id) {
+            this.size++;
+          }
+        }
+
+        console.log(this.size);
+      } catch (err) {
+        console.log(err.message);
+      }
+    },
+
     async CreatePicture() {
       try {
         if (this.url) {
           await axios.post(`https://bakedcheese.nl/webserver/pictures`, {
-            order_in_paragraph: this.$props.picturessize,
+            order_in_paragraph: this.size,
             url: this.url,
             alt: this.alt,
             caption: this.cap,
@@ -87,6 +113,8 @@ export default {
 
           this.url = "";
           this.alt = "";
+
+          this.GetPictureSize();
         } else {
           console.log("Can't add, because there is no content!");
         }

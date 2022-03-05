@@ -112,7 +112,6 @@ export default {
         params: {
           paragraph_id: this.$props.paragraph.id,
           paragraph_title: this.$props.paragraph.heading,
-          picturessize: this.pictures.length,
         },
       });
     },

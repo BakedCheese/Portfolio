@@ -30,8 +30,7 @@ export default {
 
 .image-in-cluster {
   flex-grow: 1;
-  min-width: 48%;
-  max-width: 100%;
+  width: 48%;
 }
 
 .image-in-cluster:nth-child(odd) {
