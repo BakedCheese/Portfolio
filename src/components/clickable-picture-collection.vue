@@ -163,7 +163,7 @@ export default {
 .picture {
   border-radius: 10px;
   width: 100%;
-  height: 280px;
+  height: 300px;
   object-fit: cover;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
   transition: all 0.2s ease-in-out;

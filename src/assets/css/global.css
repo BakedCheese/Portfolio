@@ -1,6 +1,7 @@
 .default {
   margin: 30px;
   min-width: 280px;
+  overflow-x: hidden;
   -ms-user-select: none;
       user-select: none;
   -webkit-user-select: none;
@@ -36,7 +37,7 @@
 
 .inner-block {
   width: 100%;
-  max-width: 450px;
+  max-width: 500px;
   text-align: left;
 }
 

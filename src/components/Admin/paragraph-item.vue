@@ -51,6 +51,14 @@
           this.paragraph.content
         }}</a>
       </div>
+      <div class="picture_cluster">
+        <small>Has picture cluster</small>
+        <input
+          type="checkbox"
+          @change="changePicture"
+          v-bind:checked="this.picture_cluster"
+        />
+      </div>
       <div v-if="!this.paragraph.links">
         <div class="margin"></div>
         <div class="item-list-heading">
@@ -69,6 +77,7 @@
 <script>
 import axios from "axios";
 import PictureItem from "./picture-item.vue";
+
 import DeleteButton from "./Buttons/delete-button.vue";
 import EditButton from "./Buttons/edit-button.vue";
 export default {
@@ -77,6 +86,7 @@ export default {
   data() {
     return {
       pictures: [],
+      picture_cluster: true,
       showProjects: false,
       date: "",
       updated: "",
@@ -87,6 +97,15 @@ export default {
     this.Load();
   },
   methods: {
+    async changePicture() {
+      this.picture_cluster = !this.picture_cluster;
+      await axios.put(
+        `https://bakedcheese.nl/webserver/paragraphs/${this.$props.paragraph.id}`,
+        {
+          picture_cluster: this.picture_cluster,
+        }
+      );
+    },
     createPicture() {
       this.$router.push({
         name: "CreatePicture",
@@ -106,6 +125,7 @@ export default {
     },
     async Load() {
       try {
+        this.picture_cluster = this.$props.paragraph.picture_cluster;
         const response = await axios.get(
           `https://bakedcheese.nl/webserver/pictures`
         );
@@ -123,4 +143,15 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.picture_cluster {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 5px;
+}
+.picture_cluster small {
+  margin-right: 5px;
+  padding-bottom: 3px;
+}
+</style>

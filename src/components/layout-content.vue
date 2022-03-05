@@ -10,8 +10,14 @@
     </div>
     <div class="margin"></div>
     <div class="pic-mar" v-if="this.pictures.length != 0">
-      <div v-for="picture in pictures" :key="picture.id">
-        <imageinlayout :picture="picture" />
+      <div v-if="!paragraph.picture_cluster">
+        <div v-for="picture in pictures" :key="picture.id">
+          <imageinlayout :picture="picture" />
+          <div class="margin"></div>
+        </div>
+      </div>
+      <div v-else>
+        <imageclusterinlayout :pictures="pictures" />
         <div class="margin"></div>
       </div>
     </div>
@@ -21,10 +27,11 @@
 <script>
 import axios from "axios";
 import imageinlayout from "./image-layout.vue";
+import imageclusterinlayout from "./image-cluster-layout.vue";
 export default {
   props: ["paragraph"],
 
-  components: { imageinlayout },
+  components: { imageinlayout, imageclusterinlayout },
 
   data() {
     return {

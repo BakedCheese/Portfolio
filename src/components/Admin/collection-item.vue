@@ -105,7 +105,6 @@ export default {
     async Load() {
       try {
         this.has_picture = this.$props.data.has_picture;
-        console.log(this.has_picture);
         const response = await axios.get(
           `https://bakedcheese.nl/webserver/projects`
         );

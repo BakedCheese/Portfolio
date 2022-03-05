@@ -1,12 +1,5 @@
 <template>
   <div class="image-holder">
-    <h2 v-if="picture.alt" class="title" :class="{ active_tit: this.big }">
-      {{ picture.alt }}
-    </h2>
-    <div class="caption" :class="{ active_cap: this.big }">
-      {{ picture.caption }}
-    </div>
-
     <img
       class="picture"
       :class="{ active_pic: this.big }"
@@ -57,9 +50,9 @@ export default {
 <style scoped>
 .picture {
   border-radius: 10px;
+
   width: 100%;
-  height: 100%;
-  max-height: 400px;
+  height: 200px;
   object-fit: cover;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
   transition: all 0.2s ease-in-out;
@@ -70,21 +63,10 @@ export default {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 6px;
 }
 
-.active_tit {
-  font-size: 1.4rem !important;
-  margin-bottom: 10px !important;
-}
-
-.title {
-  transition: all 0.2s ease-in-out;
-  font-size: 0rem;
-  margin-bottom: -10px;
-}
-
 .active_but {
   opacity: 1 !important;
   height: 50px !important;
-  margin: -60px auto 35px auto !important;
+  margin: -60px auto 10px auto !important;
 }
 
 .buttons {
@@ -113,16 +95,5 @@ export default {
 }
 .buttons > a:hover {
   background-color: rgb(243, 243, 243);
-}
-
-.caption {
-  transition: all 0.2s ease-in-out;
-  font-size: 0rem;
-  margin-bottom: 0px;
-}
-
-.active_cap {
-  font-size: 0.9rem !important;
-  margin-bottom: 13px !important;
 }
 </style>
