@@ -2,7 +2,7 @@
   <div v-if="this.url.length > 0">
     <div class="button" @click="gotoProject">
       <img class="picture" :src="this.url" :alt="this.alt" />
-      <div class="content ps-3">
+      <div class="title_project ps-3">
         <h3>{{ project.title }}</h3>
       </div>
     </div>
