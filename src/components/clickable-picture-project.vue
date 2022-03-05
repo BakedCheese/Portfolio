@@ -9,7 +9,7 @@
   </div>
   <div v-else>
     <div class="button" @click="gotoProject">
-      <div class="content ps-5">
+      <div class="title_project ps-5">
         <h3>{{ project.title }}</h3>
       </div>
     </div>
@@ -89,7 +89,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.content {
+.title_project {
   width: 100%;
   height: 100%;
   background-color: #f9f9f9;
