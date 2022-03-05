@@ -60,7 +60,7 @@ export default {
 
     async CreatePicture() {
       try {
-        if (this.url && this.alt) {
+        if (this.url) {
           await axios.post(`https://bakedcheese.nl/webserver/pictures`, {
             order_in_paragraph: this.$props.picturessize,
             url: this.url,

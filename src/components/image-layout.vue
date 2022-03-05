@@ -1,6 +1,6 @@
 <template>
   <div class="image-holder">
-    <h2 class="title" :class="{ active_tit: this.big }">{{ picture.alt }}</h2>
+    <h2 v-if="picture.alt" class="title" :class="{ active_tit: this.big }">{{ picture.alt }}</h2>
     <div class="caption" :class="{ active_cap: this.big }">
       {{ picture.caption }}
     </div>
