@@ -9,7 +9,6 @@
 
     <img
       class="picture"
-      :class="{ active_pic: this.big }"
       @click="this.big = !this.big"
       :src="picture.url"
       :alt="picture.alt"
@@ -18,19 +17,32 @@
     <div class="buttons" :class="{ active_but: this.big }">
       <a
         v-if="this.big"
+        :class="{ button_full: !picture.reference }"
+        @click="biggerPicture"
+        style="margin-left: 10px"
+      >
+        <img src="../assets/icon/arrows-fullscreen.svg" alt="fullscreen" />
+      </a>
+      <a
+        v-if="this.big"
         :href="picture.url"
         :class="{ button_full: !picture.reference }"
         target="_blank"
       >
-        <img src="../assets/icon/arrows-fullscreen.svg" alt="fullscreen" />
+        <img src="../assets/icon/box-arrow-up-right.svg" alt="fullscreen" />
       </a>
       <a
         v-if="picture.reference && this.big"
         :href="picture.reference"
         target="_blank"
+        style="margin-right: 10px"
       >
         <img src="../assets/icon/link-45deg.svg" alt="reference" />
       </a>
+    </div>
+
+    <div v-if="this.bigger" class="bigPicture" @click="smallerPicture">
+      <div><img :src="picture.url" :alt="picture.alt" /></div>
     </div>
   </div>
 </template>
@@ -42,6 +54,7 @@ export default {
   data() {
     return {
       big: false,
+      bigger: false,
       referenceTitle: "",
     };
   },
@@ -50,6 +63,17 @@ export default {
     if (this.picture.reference) {
       this.referenceTitle = this.picture.reference.substring(0, 20);
     }
+  },
+
+  methods: {
+    biggerPicture() {
+      this.bigger = !this.bigger;
+      document.body.classList.add("no-scroll");
+    },
+    smallerPicture() {
+      this.bigger = !this.bigger;
+      document.body.classList.remove("no-scroll");
+    },
   },
 };
 </script>
@@ -66,10 +90,6 @@ export default {
   cursor: pointer;
 }
 
-.active_pic {
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 6px;
-}
-
 .active_tit {
   font-size: 1.4rem !important;
   margin-bottom: 10px !important;
@@ -84,14 +104,14 @@ export default {
 .active_but {
   opacity: 1 !important;
   height: 50px !important;
-  margin: -60px auto 35px auto !important;
+  margin: 10px auto 0px auto !important;
 }
 
 .buttons {
   transition: all 0.2s ease-in-out;
   height: 0px;
   opacity: 0;
-  width: 94%;
+  width: 100%;
   display: flex;
   margin: 0px;
   justify-content: space-between;
@@ -102,7 +122,7 @@ export default {
   border-radius: 10px;
   padding: 10px 0px 13px 0px;
   text-align: center;
-  width: 50px;
+  width: 100%;
   background-color: white;
 
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
@@ -124,5 +144,28 @@ export default {
 .active_cap {
   font-size: 0.9rem !important;
   margin-bottom: 13px !important;
+}
+
+.bigPicture {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.75);
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bigPicture div {
+  padding: 5%;
+}
+
+.bigPicture img {
+  border-radius: 10px;
+  width: 100%;
+  max-height: 100%;
 }
 </style>

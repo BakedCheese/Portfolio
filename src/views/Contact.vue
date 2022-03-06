@@ -71,6 +71,7 @@ export default {
 form {
   display: flex;
   flex-direction: column;
+  margin-bottom: 22px;
 }
 
 label {

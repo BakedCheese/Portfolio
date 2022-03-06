@@ -572,6 +572,7 @@ export default {
 }
 .social-media {
   margin-top: 50px;
+  margin-bottom: 22px;
   width: 100%;
   display: flex;
   justify-content: flex-start;

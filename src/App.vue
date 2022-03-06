@@ -30,6 +30,7 @@ export default {
 .center {
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .footer {
