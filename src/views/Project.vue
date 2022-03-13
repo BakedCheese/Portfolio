@@ -35,20 +35,20 @@
           class="scrollspy-example"
           tabindex="0"
         >
-          <h2
+          <h3
             v-if="!para.links && para.content"
             class="b-text heading mb-2"
             :id="para.id"
           >
             {{ para.heading }}
-          </h2>
-          <h3
+          </h3>
+          <h4
             v-if="!para.links && !para.content"
             class="b-text heading"
             :id="para.id"
           >
             {{ para.heading }}
-          </h3>
+          </h4>
           <LayoutContent v-if="!para.links" :paragraph="para" />
           <p v-else class="b-text link">
             {{ para.heading }} -
@@ -135,9 +135,8 @@ export default {
 <style scoped>
 .link {
   font-weight: bold;
-  padding: 8px 8px 8px 15px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px;
-  border-radius: 10px;
+  padding: 0px 0px 8px 0px;
+  margin-top: -5px;
 }
 
 .link a {

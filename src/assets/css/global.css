@@ -19,6 +19,10 @@
   margin-bottom: 22px;
 }
 
+.margin-l {
+  margin-bottom: 30px;
+}
+
 .b-text {
   color: black;
 }
@@ -37,7 +41,7 @@
 
 .inner-block {
   width: 100%;
-  max-width: 500px;
+  max-width: 550px;
   text-align: left;
 }
 
